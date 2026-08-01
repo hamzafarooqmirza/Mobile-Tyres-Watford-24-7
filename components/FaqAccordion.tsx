@@ -56,7 +56,7 @@ export default function FaqAccordion() {
           >
             <span className="text-white font-semibold text-[15px]">{faq.q}</span>
             <span
-              className="material-symbols-outlined text-[#e11d48] shrink-0 transition-transform duration-300"
+              className="material-symbols-outlined text-[#f97316] shrink-0 transition-transform duration-300"
               style={{ transform: openFaq === i ? 'rotate(180deg)' : 'none' }}
             >
               expand_more

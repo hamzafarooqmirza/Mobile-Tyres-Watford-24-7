@@ -27,7 +27,7 @@ export default function Footer() {
       <footer className="w-full bg-[#060d1a] text-[#dae2fd] border-t border-[#1a2540]">
 
         {/* Top CTA bar */}
-        <div className="bg-[#e11d48] px-4 md:px-12 py-4">
+        <div className="bg-[#f97316] px-4 md:px-12 py-4">
           <div className="max-w-[1280px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2 text-white font-bold text-[15px]">
               <span className="material-symbols-outlined text-[20px]">warning</span>
@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="flex flex-wrap gap-2 shrink-0">
               <a
                 href="tel:07466756907"
-                className="bg-white text-[#e11d48] px-4 py-2 rounded-lg font-bold text-[12px] uppercase tracking-wide hover:bg-[#fff5f6] transition-colors"
+                className="bg-white text-[#f97316] px-4 py-2 rounded-lg font-bold text-[12px] uppercase tracking-wide hover:bg-[#fff7ed] transition-colors"
               >
                 Mobile 24/7 · 07466 756907
               </a>
@@ -65,8 +65,8 @@ export default function Footer() {
             {/* Brand */}
             <div className="sm:col-span-2 lg:col-span-1">
               <Link href="/" className="inline-flex items-center mb-4 group">
-                <span className="text-white font-extrabold text-[18px] tracking-tight group-hover:text-[#e11d48] transition-colors leading-tight">
-                  Mobile Tyres <span className="text-[#e11d48]">Watford 24/7</span>
+                <span className="text-white font-extrabold text-[18px] tracking-tight group-hover:text-[#f97316] transition-colors leading-tight">
+                  Mobile Tyres <span className="text-[#f97316]">Watford 24/7</span>
                 </span>
               </Link>
               <p className="text-[#7a90b8] text-[14px] leading-relaxed mb-5">
@@ -75,14 +75,14 @@ export default function Footer() {
               <div className="flex gap-3">
                 <a
                   href="tel:07466756907"
-                  className="w-9 h-9 rounded-lg bg-[#131f38] border border-[#1e2d4a] flex items-center justify-center text-[#e11d48] hover:bg-[#e11d48] hover:text-white hover:border-[#e11d48] transition-all"
+                  className="w-9 h-9 rounded-lg bg-[#131f38] border border-[#1e2d4a] flex items-center justify-center text-[#f97316] hover:bg-[#f97316] hover:text-white hover:border-[#f97316] transition-all"
                   aria-label="Mobile 24/7"
                 >
                   <span className="material-symbols-outlined text-[18px]">local_shipping</span>
                 </a>
                 <a
                   href="tel:01923240599"
-                  className="w-9 h-9 rounded-lg bg-[#131f38] border border-[#1e2d4a] flex items-center justify-center text-[#e11d48] hover:bg-[#e11d48] hover:text-white hover:border-[#e11d48] transition-all"
+                  className="w-9 h-9 rounded-lg bg-[#131f38] border border-[#1e2d4a] flex items-center justify-center text-[#f97316] hover:bg-[#f97316] hover:text-white hover:border-[#f97316] transition-all"
                   aria-label="Office"
                 >
                   <span className="material-symbols-outlined text-[18px]">call</span>
@@ -98,7 +98,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="mailto:Mirahmed0101@gmail.com"
-                  className="w-9 h-9 rounded-lg bg-[#131f38] border border-[#1e2d4a] flex items-center justify-center text-[#ffb3b6] hover:bg-[#ffb3b6] hover:text-[#060d1a] hover:border-[#ffb3b6] transition-all"
+                  className="w-9 h-9 rounded-lg bg-[#131f38] border border-[#1e2d4a] flex items-center justify-center text-[#fed7aa] hover:bg-[#fed7aa] hover:text-[#060d1a] hover:border-[#fed7aa] transition-all"
                   aria-label="Email"
                 >
                   <span className="material-symbols-outlined text-[18px]">mail</span>
@@ -107,7 +107,7 @@ export default function Footer() {
                   href="https://maps.google.com/?q=Watford"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-[#131f38] border border-[#1e2d4a] flex items-center justify-center text-[#ffb3b6] hover:bg-[#ffb3b6] hover:text-[#060d1a] hover:border-[#ffb3b6] transition-all"
+                  className="w-9 h-9 rounded-lg bg-[#131f38] border border-[#1e2d4a] flex items-center justify-center text-[#fed7aa] hover:bg-[#fed7aa] hover:text-[#060d1a] hover:border-[#fed7aa] transition-all"
                   aria-label="Location"
                 >
                   <span className="material-symbols-outlined text-[18px]">location_on</span>
@@ -117,7 +117,7 @@ export default function Footer() {
 
             {/* Pages */}
             <div>
-              <h3 className="font-mono text-[11px] text-[#e11d48] uppercase tracking-[0.15em] font-bold mb-5">Navigation</h3>
+              <h3 className="font-mono text-[11px] text-[#f97316] uppercase tracking-[0.15em] font-bold mb-5">Navigation</h3>
               <ul className="space-y-3">
                 {pages.map(({ href, label }) => (
                   <li key={href}>
@@ -125,7 +125,7 @@ export default function Footer() {
                       href={href}
                       className="flex items-center gap-2 text-[#7a90b8] hover:text-[#dae2fd] transition-colors text-[14px] group"
                     >
-                      <span className="w-1 h-1 rounded-full bg-[#e11d48]/40 group-hover:bg-[#e11d48] transition-colors shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-[#f97316]/40 group-hover:bg-[#f97316] transition-colors shrink-0" />
                       {label}
                     </Link>
                   </li>
@@ -135,7 +135,7 @@ export default function Footer() {
 
             {/* Services */}
             <div>
-              <h3 className="font-mono text-[11px] text-[#e11d48] uppercase tracking-[0.15em] font-bold mb-5">Services</h3>
+              <h3 className="font-mono text-[11px] text-[#f97316] uppercase tracking-[0.15em] font-bold mb-5">Services</h3>
               <ul className="space-y-3">
                 {servicesList.map((svc) => (
                   <li key={svc}>
@@ -143,7 +143,7 @@ export default function Footer() {
                       href="/services"
                       className="flex items-center gap-2 text-[#7a90b8] hover:text-[#dae2fd] transition-colors text-[14px] group"
                     >
-                      <span className="w-1 h-1 rounded-full bg-[#e11d48]/40 group-hover:bg-[#e11d48] transition-colors shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-[#f97316]/40 group-hover:bg-[#f97316] transition-colors shrink-0" />
                       {svc}
                     </Link>
                   </li>
@@ -153,11 +153,11 @@ export default function Footer() {
 
             {/* Contact */}
             <div>
-              <h3 className="font-mono text-[11px] text-[#e11d48] uppercase tracking-[0.15em] font-bold mb-5">Contact Info</h3>
+              <h3 className="font-mono text-[11px] text-[#f97316] uppercase tracking-[0.15em] font-bold mb-5">Contact Info</h3>
               <ul className="space-y-4">
                 <li>
                   <div className="flex gap-3 items-start">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">location_on</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">location_on</span>
                     <div>
                       <div className="text-[#7a90b8] text-[12px] font-mono uppercase tracking-wide mb-0.5">Service Area</div>
                       <div className="text-[#dae2fd] text-[14px] leading-snug">Watford &amp; Surrounding Areas</div>
@@ -166,10 +166,10 @@ export default function Footer() {
                 </li>
                 <li>
                   <div className="flex gap-3 items-start">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">local_shipping</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">local_shipping</span>
                     <div>
                       <div className="text-[#7a90b8] text-[12px] font-mono uppercase tracking-wide mb-0.5">Mobile Service 24/7</div>
-                      <a href="tel:07466756907" className="text-[#dae2fd] text-[15px] font-bold hover:text-[#e11d48] transition-colors">
+                      <a href="tel:07466756907" className="text-[#dae2fd] text-[15px] font-bold hover:text-[#f97316] transition-colors">
                         07466 756907
                       </a>
                     </div>
@@ -177,10 +177,10 @@ export default function Footer() {
                 </li>
                 <li>
                   <div className="flex gap-3 items-start">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">call</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">call</span>
                     <div>
                       <div className="text-[#7a90b8] text-[12px] font-mono uppercase tracking-wide mb-0.5">Office</div>
-                      <a href="tel:01923240599" className="text-[#dae2fd] text-[15px] font-bold hover:text-[#e11d48] transition-colors">
+                      <a href="tel:01923240599" className="text-[#dae2fd] text-[15px] font-bold hover:text-[#f97316] transition-colors">
                         01923 240599
                       </a>
                     </div>
@@ -188,22 +188,22 @@ export default function Footer() {
                 </li>
                 <li>
                   <div className="flex gap-3 items-start">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">schedule</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">schedule</span>
                     <div>
                       <div className="text-[#7a90b8] text-[12px] font-mono uppercase tracking-wide mb-0.5">Hours</div>
                       <div className="text-[#dae2fd] text-[14px]">Mon–Sun: Available</div>
-                      <div className="text-[#ffb3b6] text-[13px]">Mobile: 24/7 Anytime</div>
+                      <div className="text-[#fed7aa] text-[13px]">Mobile: 24/7 Anytime</div>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div className="flex gap-3 items-start">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">mail</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">mail</span>
                     <div>
                       <div className="text-[#7a90b8] text-[12px] font-mono uppercase tracking-wide mb-0.5">Email</div>
                       <a
                         href="mailto:Mirahmed0101@gmail.com"
-                        className="text-[#dae2fd] text-[13px] hover:text-[#e11d48] transition-colors break-all"
+                        className="text-[#dae2fd] text-[13px] hover:text-[#f97316] transition-colors break-all"
                       >
                         Mirahmed0101@gmail.com
                       </a>
@@ -222,7 +222,7 @@ export default function Footer() {
               © {year} Mobile Tyres Watford 24/7. All rights reserved.
             </span>
             <div className="flex items-center gap-1 font-mono uppercase tracking-wider">
-              <span className="material-symbols-outlined text-[14px] text-[#e11d48]">location_on</span>
+              <span className="material-symbols-outlined text-[14px] text-[#f97316]">location_on</span>
               Serving Watford &amp; Surrounding Areas
             </div>
           </div>
@@ -234,7 +234,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 border-t border-[#1a2540] bg-[#060d1a] shadow-2xl">
           <a
             href="tel:07466756907"
-            className="flex flex-col items-center justify-center gap-0.5 py-3 bg-[#e11d48] text-white font-bold text-[11px] uppercase tracking-wide"
+            className="flex flex-col items-center justify-center gap-0.5 py-3 bg-[#f97316] text-white font-bold text-[11px] uppercase tracking-wide"
           >
             <span className="material-symbols-outlined text-[18px]">local_shipping</span>
             Mobile 24/7

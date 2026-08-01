@@ -196,14 +196,14 @@ export default function HomePage() {
 
         <div className="relative z-10 px-4 md:px-12 max-w-[1280px] mx-auto w-full py-20">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e11d48]/10 border border-[#e11d48]/25 text-[#e11d48] mb-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f97316]/10 border border-[#f97316]/25 text-[#f97316] mb-5">
             <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>stars</span>
             <span className="font-mono text-[11px] uppercase tracking-widest font-bold">24/7 Mobile Tyre Service · Watford</span>
           </div>
 
           <h1 className="text-[42px] sm:text-[56px] md:text-[72px] font-extrabold tracking-tight leading-[1.05] text-white mb-5 max-w-3xl">
             Mobile Tyre Fitting at Your Doorstep —{' '}
-            <span className="text-[#e11d48]">Watford &amp; Surrounding Areas</span>
+            <span className="text-[#f97316]">Watford &amp; Surrounding Areas</span>
           </h1>
 
           <p className="text-[#9aadcc] text-[16px] sm:text-[18px] leading-relaxed max-w-xl mb-8">
@@ -214,7 +214,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-10">
             <a
               href="tel:07466756907"
-              className="flex items-center justify-center gap-2 bg-[#e11d48] text-white px-7 py-4 rounded-xl font-bold text-[15px] uppercase tracking-wide emergency-pulse shadow-lg shadow-[#e11d48]/20"
+              className="flex items-center justify-center gap-2 bg-[#f97316] text-white px-7 py-4 rounded-xl font-bold text-[15px] uppercase tracking-wide emergency-pulse shadow-lg shadow-[#f97316]/20"
             >
               <span className="material-symbols-outlined text-[20px]">local_shipping</span>
               Mobile 24/7 — 07466 756907
@@ -246,7 +246,7 @@ export default function HomePage() {
               { icon: 'price_check', text: 'Upfront Transparent Pricing' },
             ].map((item) => (
               <div key={item.text} className="flex items-center gap-1.5 text-[#7a90b8] text-[13px]">
-                <span className="material-symbols-outlined text-[#e11d48] text-[16px]">{item.icon}</span>
+                <span className="material-symbols-outlined text-[#f97316] text-[16px]">{item.icon}</span>
                 {item.text}
               </div>
             ))}
@@ -317,7 +317,7 @@ export default function HomePage() {
       <section className="py-20 bg-[#0b1326]">
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto">
           <div className="text-center mb-6 reveal">
-            <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">What We Do</p>
+            <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">What We Do</p>
             <h2 className="text-[30px] md:text-[38px] font-extrabold tracking-tight text-white">Mobile Tyre Services We Offer in Watford &amp; Surrounding Areas</h2>
           </div>
           <p className="text-center text-[#7a90b8] text-[15px] leading-relaxed max-w-2xl mx-auto mb-12 reveal">
@@ -328,7 +328,7 @@ export default function HomePage() {
             {services.map((svc, i) => (
               <div
                 key={svc.title}
-                className="reveal group bg-[#131b2e] rounded-2xl overflow-hidden border border-[#1e2d4a] hover:border-[#e11d48]/40 hover:shadow-xl hover:shadow-[#e11d48]/5 transition-all duration-300 flex flex-col"
+                className="reveal group bg-[#131b2e] rounded-2xl overflow-hidden border border-[#1e2d4a] hover:border-[#f97316]/40 hover:shadow-xl hover:shadow-[#f97316]/5 transition-all duration-300 flex flex-col"
                 style={{ transitionDelay: `${(i % 3) * 60}ms` }}
               >
                 <div className="relative h-44 overflow-hidden bg-[#0b1326]">
@@ -345,7 +345,7 @@ export default function HomePage() {
                   <p className="text-[#7a90b8] text-[13px] leading-relaxed flex-1 mb-3">{svc.desc}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {svc.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-0.5 bg-[#0b1326] border border-[#1e2d4a] rounded text-[10px] font-mono text-[#e11d48] uppercase tracking-wide">
+                      <span key={tag} className="px-2 py-0.5 bg-[#0b1326] border border-[#1e2d4a] rounded text-[10px] font-mono text-[#f97316] uppercase tracking-wide">
                         {tag}
                       </span>
                     ))}
@@ -362,10 +362,10 @@ export default function HomePage() {
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div className="reveal">
-              <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-3">Why Choose Us</p>
+              <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-3">Why Choose Us</p>
               <h2 className="text-[30px] md:text-[40px] font-extrabold tracking-tight text-white mb-5 leading-tight">
                 Professional Tyre Service,{' '}
-                <span className="text-[#e11d48]">Delivered to Your Door</span>
+                <span className="text-[#f97316]">Delivered to Your Door</span>
               </h2>
               <p className="text-[#7a90b8] text-[16px] leading-relaxed mb-8">
                 Mobile Tyres Watford 24/7 isn&apos;t just a mobile tyre service — we bring the full garage experience wherever you are. From puncture repair to same day tyre fitting, every visit is handled by experienced technicians using professional-grade equipment. No shortcuts, no surprises.
@@ -389,8 +389,8 @@ export default function HomePage() {
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#e11d48]/10 flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-[#e11d48] text-[20px]">{item.icon}</span>
+                    <div className="w-10 h-10 rounded-xl bg-[#f97316]/10 flex items-center justify-center shrink-0">
+                      <span className="material-symbols-outlined text-[#f97316] text-[20px]">{item.icon}</span>
                     </div>
                     <div>
                       <p className="text-white font-bold text-[15px] mb-0.5">{item.title}</p>
@@ -400,7 +400,7 @@ export default function HomePage() {
                 ))}
               </div>
               <div className="mt-8">
-                <Link href="/about" className="inline-flex items-center gap-2 text-[#e11d48] font-bold text-[14px] hover:gap-3 transition-all">
+                <Link href="/about" className="inline-flex items-center gap-2 text-[#f97316] font-bold text-[14px] hover:gap-3 transition-all">
                   Learn more about us
                   <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </Link>
@@ -425,7 +425,7 @@ export default function HomePage() {
                     { value: '24/7', label: 'Emergency Line' },
                   ].map((s) => (
                     <div key={s.label} className="text-center px-4 first:pl-0 last:pr-0">
-                      <p className="text-[22px] font-extrabold text-[#e11d48] leading-none">{s.value}</p>
+                      <p className="text-[22px] font-extrabold text-[#f97316] leading-none">{s.value}</p>
                       <p className="font-mono text-[10px] text-[#7a90b8] uppercase tracking-widest mt-1">{s.label}</p>
                     </div>
                   ))}
@@ -442,7 +442,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 justify-between">
               <div className="reveal">
-                <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-1">Service Area</p>
+                <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-1">Service Area</p>
                 <h2 className="text-white font-bold text-[20px] md:text-[24px] leading-snug">
                   Mobile Tyre Service Near You —<br className="hidden sm:block" /> Watford &amp; Hertfordshire
                 </h2>
@@ -463,19 +463,19 @@ export default function HomePage() {
             {/* NAP Block */}
             <div className="reveal flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-2">
               <div className="flex items-center gap-2 text-[#7a90b8] text-[13px]">
-                <span className="material-symbols-outlined text-[#e11d48] text-[15px]">location_on</span>
+                <span className="material-symbols-outlined text-[#f97316] text-[15px]">location_on</span>
                 Watford, Hertfordshire
               </div>
               <a href="tel:07466756907" className="flex items-center gap-2 text-[#7a90b8] text-[13px] hover:text-[#dae2fd] transition-colors">
-                <span className="material-symbols-outlined text-[#e11d48] text-[15px]">local_shipping</span>
+                <span className="material-symbols-outlined text-[#f97316] text-[15px]">local_shipping</span>
                 Mobile 24/7: 07466 756907
               </a>
               <a href="tel:01923240599" className="flex items-center gap-2 text-[#7a90b8] text-[13px] hover:text-[#dae2fd] transition-colors">
-                <span className="material-symbols-outlined text-[#e11d48] text-[15px]">call</span>
+                <span className="material-symbols-outlined text-[#f97316] text-[15px]">call</span>
                 Office: 01923 240599
               </a>
               <a href="mailto:Mirahmed0101@gmail.com" className="flex items-center gap-2 text-[#7a90b8] text-[13px] hover:text-[#dae2fd] transition-colors">
-                <span className="material-symbols-outlined text-[#e11d48] text-[15px]">mail</span>
+                <span className="material-symbols-outlined text-[#f97316] text-[15px]">mail</span>
                 Mirahmed0101@gmail.com
               </a>
             </div>
@@ -504,7 +504,7 @@ export default function HomePage() {
 
             {/* Form */}
             <div className="reveal">
-              <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">Book a Service</p>
+              <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">Book a Service</p>
               <h2 className="text-[28px] md:text-[36px] font-extrabold tracking-tight text-white mb-2 leading-tight">
                 Get a Fast Quote for Mobile Tyre Service Near You
               </h2>
@@ -517,38 +517,38 @@ export default function HomePage() {
             {/* Contact Info */}
             <div className="reveal flex flex-col gap-6">
               <div className="bg-[#131b2e] border border-[#1e2d4a] rounded-2xl p-6">
-                <p className="font-mono text-[11px] text-[#e11d48] uppercase tracking-[0.15em] font-bold mb-5">Contact Us Directly</p>
+                <p className="font-mono text-[11px] text-[#f97316] uppercase tracking-[0.15em] font-bold mb-5">Contact Us Directly</p>
                 <div className="space-y-5">
                   <a href="tel:07466756907" className="flex gap-3 items-start group">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">local_shipping</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">local_shipping</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Mobile Service 24/7</p>
-                      <p className="text-white font-bold text-[18px] group-hover:text-[#e11d48] transition-colors">07466 756907</p>
+                      <p className="text-white font-bold text-[18px] group-hover:text-[#f97316] transition-colors">07466 756907</p>
                     </div>
                   </a>
                   <a href="tel:01923240599" className="flex gap-3 items-start group">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">call</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">call</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Office</p>
-                      <p className="text-white font-bold text-[18px] group-hover:text-[#e11d48] transition-colors">01923 240599</p>
+                      <p className="text-white font-bold text-[18px] group-hover:text-[#f97316] transition-colors">01923 240599</p>
                     </div>
                   </a>
                   <a href="https://wa.me/447466756907" target="_blank" rel="noopener noreferrer" className="flex gap-3 items-start group">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">chat</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">chat</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">WhatsApp</p>
                       <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[14px] font-bold">07466 756907</p>
                     </div>
                   </a>
                   <a href="mailto:Mirahmed0101@gmail.com" className="flex gap-3 items-start group">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">mail</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">mail</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Email</p>
                       <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[13px] break-all">Mirahmed0101@gmail.com</p>
                     </div>
                   </a>
                   <div className="flex gap-3 items-start">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[18px] mt-0.5 shrink-0">location_on</span>
+                    <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">location_on</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Service Area</p>
                       <p className="text-[#9aadcc] text-[14px]">Watford, Hertfordshire &amp; surrounding areas</p>
@@ -556,8 +556,8 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#e11d48]/10 border border-[#e11d48]/20 rounded-2xl p-5 flex gap-3 items-start">
-                <span className="material-symbols-outlined text-[#e11d48] shrink-0">warning</span>
+              <div className="bg-[#f97316]/10 border border-[#f97316]/20 rounded-2xl p-5 flex gap-3 items-start">
+                <span className="material-symbols-outlined text-[#f97316] shrink-0">warning</span>
                 <div>
                   <p className="text-white font-bold text-[14px] mb-0.5">Flat tyre or roadside emergency? We operate 24/7.</p>
                   <p className="text-[#9aadcc] text-[13px]">Mobile Tyres Watford 24/7 operates around the clock. Call or WhatsApp anytime — our emergency tyre service line never closes.</p>
@@ -572,14 +572,14 @@ export default function HomePage() {
       <section className="py-20 bg-[#131b2e] border-t border-[#1e2d4a]">
         <div className="px-4 md:px-12 max-w-[720px] mx-auto">
           <div className="text-center mb-12 reveal">
-            <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">FAQ</p>
+            <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">FAQ</p>
             <h2 className="text-[28px] md:text-[32px] font-extrabold tracking-tight text-white">
               Frequently Asked Questions — Mobile Tyre Service Watford
             </h2>
           </div>
           <FaqAccordion />
           <div className="text-center mt-8 reveal">
-            <Link href="/contact#faq" className="inline-flex items-center gap-2 text-[#e11d48] font-bold text-[14px] hover:gap-3 transition-all">
+            <Link href="/contact#faq" className="inline-flex items-center gap-2 text-[#f97316] font-bold text-[14px] hover:gap-3 transition-all">
               See more FAQs on Contact page
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </Link>

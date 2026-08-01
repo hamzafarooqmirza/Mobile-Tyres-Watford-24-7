@@ -136,7 +136,7 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#060e20] via-[#060e20]/80 to-transparent" />
         </div>
         <div className="relative z-10 px-4 md:px-12 max-w-[1280px] mx-auto">
-          <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-3">What We Do</p>
+          <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-3">What We Do</p>
           <h1 className="text-[44px] md:text-[64px] font-extrabold tracking-tight leading-[1.05] text-white mb-5 max-w-2xl">
             Mobile Tyre Services in Watford
           </h1>
@@ -144,7 +144,7 @@ export default function ServicesPage() {
             We bring the full tyre service to your driveway, office, or roadside — no garage, no waiting. Fast, professional, and precise.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="tel:07466756907" className="bg-[#e11d48] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide emergency-pulse shadow-lg shadow-[#e11d48]/20">
+            <a href="tel:07466756907" className="bg-[#f97316] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide emergency-pulse shadow-lg shadow-[#f97316]/20">
               Call for Emergency
             </a>
             <a href="https://wa.me/447466756907" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide">
@@ -158,7 +158,7 @@ export default function ServicesPage() {
       <section className="py-20 bg-[#0b1326]">
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto">
           <div className="text-center mb-14 reveal">
-            <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">8 Services</p>
+            <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">8 Services</p>
             <h2 className="text-[32px] md:text-[40px] font-extrabold tracking-tight text-white">Everything You Need, On-Site</h2>
           </div>
 
@@ -166,7 +166,7 @@ export default function ServicesPage() {
             {services.map((svc, i) => (
               <div
                 key={svc.title}
-                className="reveal group bg-[#131b2e] rounded-2xl overflow-hidden border border-[#1e2d4a] hover:border-[#e11d48]/40 hover:shadow-xl hover:shadow-[#e11d48]/5 transition-all duration-300 flex flex-col"
+                className="reveal group bg-[#131b2e] rounded-2xl overflow-hidden border border-[#1e2d4a] hover:border-[#f97316]/40 hover:shadow-xl hover:shadow-[#f97316]/5 transition-all duration-300 flex flex-col"
                 style={{ transitionDelay: `${(i % 3) * 60}ms` }}
               >
                 <div className="relative h-48 overflow-hidden bg-[#0b1326]">
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                   <p className="text-[#7a90b8] text-[14px] leading-relaxed flex-1 mb-4">{svc.desc}</p>
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {svc.tags.map((tag) => (
-                      <span key={tag} className="px-2.5 py-1 bg-[#0b1326] border border-[#1e2d4a] rounded-md text-[11px] font-mono text-[#e11d48] uppercase tracking-wide">
+                      <span key={tag} className="px-2.5 py-1 bg-[#0b1326] border border-[#1e2d4a] rounded-md text-[11px] font-mono text-[#f97316] uppercase tracking-wide">
                         {tag}
                       </span>
                     ))}
@@ -199,7 +199,7 @@ export default function ServicesPage() {
       <section className="py-20 bg-[#131b2e] border-y border-[#1e2d4a]">
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto">
           <div className="text-center mb-14 reveal">
-            <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">Why Choose Us</p>
+            <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">Why Choose Us</p>
             <h2 className="text-[32px] md:text-[40px] font-extrabold tracking-tight text-white">The Mobile Tyres Watford Difference</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -216,8 +216,8 @@ export default function ServicesPage() {
                 className="reveal flex gap-4 p-5 rounded-2xl bg-[#0b1326] border border-[#1e2d4a]"
                 style={{ transitionDelay: `${(i % 3) * 80}ms` }}
               >
-                <div className="w-10 h-10 rounded-xl bg-[#e11d48]/10 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-[#e11d48] text-[20px]">{item.icon}</span>
+                <div className="w-10 h-10 rounded-xl bg-[#f97316]/10 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-[#f97316] text-[20px]">{item.icon}</span>
                 </div>
                 <div>
                   <p className="text-white font-bold text-[15px] mb-1">{item.title}</p>
@@ -233,7 +233,7 @@ export default function ServicesPage() {
       <section className="py-20 bg-[#0b1326]">
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto">
           <div className="text-center mb-14 reveal">
-            <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">Process</p>
+            <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">Process</p>
             <h2 className="text-[32px] md:text-[40px] font-extrabold tracking-tight text-white">How It Works</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -249,10 +249,10 @@ export default function ServicesPage() {
                 className="reveal flex flex-col items-center text-center p-6 rounded-2xl bg-[#131b2e] border border-[#1e2d4a] relative"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="w-12 h-12 rounded-full bg-[#e11d48] flex items-center justify-center mb-4 shadow-lg shadow-[#e11d48]/25">
+                <div className="w-12 h-12 rounded-full bg-[#f97316] flex items-center justify-center mb-4 shadow-lg shadow-[#f97316]/25">
                   <span className="material-symbols-outlined text-white text-[22px]">{item.icon}</span>
                 </div>
-                <div className="font-mono text-[11px] text-[#e11d48] uppercase tracking-widest mb-1">Step {item.step}</div>
+                <div className="font-mono text-[11px] text-[#f97316] uppercase tracking-widest mb-1">Step {item.step}</div>
                 <p className="text-white font-bold text-[15px] mb-1">{item.title}</p>
                 <p className="text-[#7a90b8] text-[13px] leading-relaxed">{item.desc}</p>
               </div>
@@ -262,7 +262,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Emergency Banner ── */}
-      <section className="py-14 bg-[#e11d48]">
+      <section className="py-14 bg-[#f97316]">
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 text-white/80 font-mono text-[12px] uppercase tracking-widest mb-1">
@@ -273,7 +273,7 @@ export default function ServicesPage() {
             <p className="text-white/75 text-[15px] mt-1">We dispatch immediately. Average Watford area arrival under 60 minutes.</p>
           </div>
           <div className="flex gap-3 shrink-0">
-            <a href="tel:07466756907" className="bg-white text-[#e11d48] px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide hover:bg-[#fff5f6] transition-colors">
+            <a href="tel:07466756907" className="bg-white text-[#f97316] px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide hover:bg-[#fff7ed] transition-colors">
               Call Now
             </a>
             <a href="https://wa.me/447466756907" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide">
@@ -287,7 +287,7 @@ export default function ServicesPage() {
       <section className="py-20 bg-[#0b1326]">
         <div className="px-4 md:px-12 max-w-[720px] mx-auto">
           <div className="text-center mb-12 reveal">
-            <p className="font-mono text-[#e11d48] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">FAQ</p>
+            <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">FAQ</p>
             <h2 className="text-[32px] font-extrabold tracking-tight text-white">Common Questions</h2>
           </div>
           <div className="space-y-3">
@@ -299,7 +299,7 @@ export default function ServicesPage() {
                 >
                   <span className="text-white font-semibold text-[15px]">{faq.q}</span>
                   <span
-                    className="material-symbols-outlined text-[#e11d48] shrink-0 transition-transform duration-300"
+                    className="material-symbols-outlined text-[#f97316] shrink-0 transition-transform duration-300"
                     style={{ transform: openFaq === i ? 'rotate(180deg)' : 'none' }}
                   >
                     expand_more
@@ -329,7 +329,7 @@ export default function ServicesPage() {
             <a href="tel:07466756907" className="shimmer-btn text-white px-10 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider">
               Call 07466 756907
             </a>
-            <Link href="/contact" className="border-2 border-[#e11d48] text-[#e11d48] px-10 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider hover:bg-[#e11d48] hover:text-white transition-colors">
+            <Link href="/contact" className="border-2 border-[#f97316] text-[#f97316] px-10 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider hover:bg-[#f97316] hover:text-white transition-colors">
               Book Online
             </Link>
           </div>

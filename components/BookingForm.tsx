@@ -25,16 +25,16 @@ export default function BookingForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block font-mono text-[10px] text-[#7a90b8] uppercase tracking-widest mb-1.5">Name</label>
-          <input type="text" placeholder="Your full name" value={form.name} onChange={set('name')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white placeholder-[#4a5f80] rounded-xl py-3.5 px-4 outline-none focus:border-[#e11d48] transition-colors text-[14px]" />
+          <input type="text" placeholder="Your full name" value={form.name} onChange={set('name')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white placeholder-[#4a5f80] rounded-xl py-3.5 px-4 outline-none focus:border-[#f97316] transition-colors text-[14px]" />
         </div>
         <div>
           <label className="block font-mono text-[10px] text-[#7a90b8] uppercase tracking-widest mb-1.5">Phone</label>
-          <input type="tel" placeholder="07xxx xxxxxx" value={form.phone} onChange={set('phone')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white placeholder-[#4a5f80] rounded-xl py-3.5 px-4 outline-none focus:border-[#e11d48] transition-colors text-[14px]" />
+          <input type="tel" placeholder="07xxx xxxxxx" value={form.phone} onChange={set('phone')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white placeholder-[#4a5f80] rounded-xl py-3.5 px-4 outline-none focus:border-[#f97316] transition-colors text-[14px]" />
         </div>
       </div>
       <div>
         <label className="block font-mono text-[10px] text-[#7a90b8] uppercase tracking-widest mb-1.5">Service</label>
-        <select value={form.service} onChange={set('service')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white rounded-xl py-3.5 px-4 outline-none focus:border-[#e11d48] transition-colors appearance-none text-[14px]">
+        <select value={form.service} onChange={set('service')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white rounded-xl py-3.5 px-4 outline-none focus:border-[#f97316] transition-colors appearance-none text-[14px]">
           <option value="">Select a service…</option>
           <option>Tyre Puncture Repair</option>
           <option>New Tyre Fitting</option>
@@ -49,9 +49,9 @@ export default function BookingForm() {
       </div>
       <div>
         <label className="block font-mono text-[10px] text-[#7a90b8] uppercase tracking-widest mb-1.5">Address</label>
-        <input type="text" placeholder="Your address in Watford / surrounding area" value={form.address} onChange={set('address')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white placeholder-[#4a5f80] rounded-xl py-3.5 px-4 outline-none focus:border-[#e11d48] transition-colors text-[14px]" />
+        <input type="text" placeholder="Your address in Watford / surrounding area" value={form.address} onChange={set('address')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white placeholder-[#4a5f80] rounded-xl py-3.5 px-4 outline-none focus:border-[#f97316] transition-colors text-[14px]" />
       </div>
-      <button type="submit" className="shimmer-btn w-full text-white font-bold py-4 rounded-xl uppercase tracking-widest text-[13px] shadow-lg shadow-[#e11d48]/20 flex items-center justify-center gap-2">
+      <button type="submit" className="shimmer-btn w-full text-white font-bold py-4 rounded-xl uppercase tracking-widest text-[13px] shadow-lg shadow-[#f97316]/20 flex items-center justify-center gap-2">
         <span className="material-symbols-outlined text-[18px]">chat</span>
         Send Quote via WhatsApp
       </button>

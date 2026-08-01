@@ -33,9 +33,9 @@ export default function Header() {
             className="flex items-center group shrink-0"
             aria-label="Mobile Tyres Watford 24/7 — Home"
           >
-            <span className="text-white font-extrabold text-[16px] sm:text-[18px] tracking-tight group-hover:text-[#e11d48] transition-colors leading-tight">
+            <span className="text-white font-extrabold text-[16px] sm:text-[18px] tracking-tight group-hover:text-[#f97316] transition-colors leading-tight">
               Mobile Tyres<br className="sm:hidden" />{' '}
-              <span className="text-[#e11d48]">Watford 24/7</span>
+              <span className="text-[#f97316]">Watford 24/7</span>
             </span>
           </Link>
 
@@ -49,13 +49,13 @@ export default function Header() {
                   href={href}
                   className={`relative px-4 py-2 rounded-lg text-[14px] font-semibold transition-all duration-200 ${
                     active
-                      ? 'text-[#e11d48] bg-[#e11d48]/10'
+                      ? 'text-[#f97316] bg-[#f97316]/10'
                       : 'text-[#b8c9e8] hover:text-[#dae2fd] hover:bg-white/5'
                   }`}
                 >
                   {label}
                   {active && (
-                    <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#e11d48] rounded-full" />
+                    <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#f97316] rounded-full" />
                   )}
                 </Link>
               )
@@ -79,7 +79,7 @@ export default function Header() {
             {/* Mobile 24/7 */}
             <a
               href="tel:07466756907"
-              className="hidden sm:flex items-center gap-1.5 bg-[#e11d48] hover:bg-[#c81a40] text-white px-4 py-2 rounded-lg font-bold text-[13px] uppercase tracking-wide transition-colors shadow-md shadow-[#e11d48]/20"
+              className="hidden sm:flex items-center gap-1.5 bg-[#f97316] hover:bg-[#ea580c] text-white px-4 py-2 rounded-lg font-bold text-[13px] uppercase tracking-wide transition-colors shadow-md shadow-[#f97316]/20"
             >
               <span className="material-symbols-outlined text-[18px]">local_shipping</span>
               <span className="hidden lg:inline">Mobile 24/7</span>
@@ -131,7 +131,7 @@ export default function Header() {
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-[16px] font-semibold transition-colors ${
                   active
-                    ? 'bg-[#e11d48]/10 text-[#e11d48] border border-[#e11d48]/20'
+                    ? 'bg-[#f97316]/10 text-[#f97316] border border-[#f97316]/20'
                     : 'text-[#b8c9e8] hover:bg-white/5 hover:text-[#dae2fd]'
                 }`}
               >
@@ -146,7 +146,7 @@ export default function Header() {
           <a
             href="tel:07466756907"
             onClick={() => setMenuOpen(false)}
-            className="flex flex-col items-center justify-center gap-0.5 bg-[#e11d48] text-white py-3 rounded-xl font-bold text-[12px] uppercase tracking-wide shadow-lg shadow-[#e11d48]/20"
+            className="flex flex-col items-center justify-center gap-0.5 bg-[#f97316] text-white py-3 rounded-xl font-bold text-[12px] uppercase tracking-wide shadow-lg shadow-[#f97316]/20"
           >
             <span className="material-symbols-outlined text-[18px]">local_shipping</span>
             Mobile 24/7
