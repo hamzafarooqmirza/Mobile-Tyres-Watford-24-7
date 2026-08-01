@@ -18,20 +18,20 @@ export const metadata: Metadata = {
   description:
     'Mobile Tyres Watford 24/7 offers same day mobile tyre fitting, tyre puncture repair, and emergency flat tyre service near you in Watford & surrounding areas. Call 07466756907.',
   icons: {
-    icon: '/Tires 10 Icon-airanko.webp',
-    apple: '/Tires 10 Icon-airanko.webp',
+    icon: '/icon.svg',
+    apple: '/icon.svg',
   },
   openGraph: {
     title: 'Mobile Tyres Watford 24/7 | Mobile Tyre Fitting Near Me – Watford',
     description:
       'Mobile Tyres Watford 24/7 offers same day mobile tyre fitting, tyre puncture repair, and emergency flat tyre service near you in Watford & surrounding areas. Call 07466756907.',
-    images: [{ url: '/Tires 10 Open Graph-airanko.webp', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.svg', width: 1200, height: 630 }],
     type: 'website',
     locale: 'en_GB',
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/Tires 10 Open Graph-airanko.webp'],
+    images: ['/og-image.svg'],
   },
 }
 
