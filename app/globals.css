@@ -131,9 +131,9 @@
 
 /* Brand animations */
 @keyframes pulse-red {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); }
-  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(225, 29, 72, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
 }
 
 .emergency-pulse {
@@ -187,19 +187,19 @@ details > summary::-webkit-details-marker {
               border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-hover:hover {
-  border-color: #e11d48;
+  border-color: #f97316;
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 10px 30px -10px rgba(225, 29, 72, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(249, 115, 22, 0.3);
 }
 
 /* ── Team cards ── */
 .team-card-glow { transition: all 0.4s ease; }
 .team-card-glow:hover {
-  box-shadow: 0 0 30px rgba(225, 29, 72, 0.25);
-  border-color: rgba(225, 29, 72, 0.4);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.25);
+  border-color: rgba(249, 115, 22, 0.4);
 }
 .team-card-overlay {
-  background: linear-gradient(0deg, rgba(225, 29, 72, 0.2) 0%, transparent 100%);
+  background: linear-gradient(0deg, rgba(249, 115, 22, 0.2) 0%, transparent 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -212,9 +212,9 @@ details > summary::-webkit-details-marker {
 
 /* ── Emergency subtle pulse ── */
 @keyframes subtle-pulse {
-  0%   { box-shadow: 0 0 0 0   rgba(225, 29, 72, 0.4); }
-  70%  { box-shadow: 0 0 0 10px rgba(225, 29, 72, 0); }
-  100% { box-shadow: 0 0 0 0   rgba(225, 29, 72, 0); }
+  0%   { box-shadow: 0 0 0 0   rgba(249, 115, 22, 0.4); }
+  70%  { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(249, 115, 22, 0); }
 }
 .animate-emergency-pulse { animation: subtle-pulse 2s infinite; }
 
@@ -234,11 +234,11 @@ details > summary::-webkit-details-marker {
   100% { background-position:  200% 0; }
 }
 .shimmer-btn {
-  background: linear-gradient(90deg, #e11d48 0%, #ff4d7d 40%, #e11d48 60%, #e11d48 100%);
+  background: linear-gradient(90deg, #f97316 0%, #fb923c 40%, #f97316 60%, #f97316 100%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite linear;
 }
-.shimmer-btn:hover { animation-play-state: paused; background: #e11d48; }
+.shimmer-btn:hover { animation-play-state: paused; background: #f97316; }
 
 /* ── FAQ accordion (Contact page) ── */
 .faq-content {
@@ -277,6 +277,6 @@ details > summary::-webkit-details-marker {
   .animate-emergency-pulse, .emergency-pulse { animation: none !important; }
   .premium-transition { transition: none !important; }
   .contact-card { opacity: 1; animation: none; }
-  .shimmer-btn { background: #e11d48 !important; animation: none !important; }
+  .shimmer-btn { background: #f97316 !important; animation: none !important; }
   .reviews-track { animation: none !important; }
 }

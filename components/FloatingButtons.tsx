@@ -22,7 +22,7 @@ export default function FloatingButtons() {
       <a
         href="tel:07466756907"
         aria-label="Mobile Tyre Service 24/7"
-        className="group relative w-14 h-14 rounded-full bg-[#e11d48] flex items-center justify-center shadow-xl shadow-[#e11d48]/40 hover:scale-110 active:scale-95 transition-transform duration-200"
+        className="group relative w-14 h-14 rounded-full bg-[#f97316] flex items-center justify-center shadow-xl shadow-[#f97316]/40 hover:scale-110 active:scale-95 transition-transform duration-200"
       >
         <span className="material-symbols-outlined text-white text-[22px]" style={{ fontVariationSettings: "'FILL' 1" }}>local_shipping</span>
         <span className="pointer-events-none absolute right-16 bg-[#0d1525] text-white text-[12px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg border border-[#1e2d4a]">
@@ -34,7 +34,7 @@ export default function FloatingButtons() {
       <a
         href="tel:01923240599"
         aria-label="Call the Office"
-        className="group relative w-14 h-14 rounded-full bg-[#1e2d4a] border border-[#2d4470] flex items-center justify-center shadow-xl hover:bg-[#e11d48] hover:border-[#e11d48] hover:scale-110 active:scale-95 transition-all duration-200"
+        className="group relative w-14 h-14 rounded-full bg-[#1e2d4a] border border-[#2d4470] flex items-center justify-center shadow-xl hover:bg-[#f97316] hover:border-[#f97316] hover:scale-110 active:scale-95 transition-all duration-200"
       >
         <span className="material-symbols-outlined text-white text-[22px]" style={{ fontVariationSettings: "'FILL' 1" }}>call</span>
         <span className="pointer-events-none absolute right-16 bg-[#0d1525] text-white text-[12px] font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg border border-[#1e2d4a]">

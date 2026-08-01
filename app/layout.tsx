@@ -45,7 +45,7 @@ export default function RootLayout({
       lang="en-GB"
       className={`dark ${geistSans.variable} ${geistMono.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="bg-[#0b1326] text-[#dae2fd] antialiased selection:bg-[#e11d48] selection:text-white">
+      <body className="bg-[#0b1326] text-[#dae2fd] antialiased selection:bg-[#f97316] selection:text-white">
         {/* Material Symbols Outlined – loaded non-render-blocking */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

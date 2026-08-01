@@ -99,9 +99,9 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-transparent" />
         </div>
         <div className="relative z-10 px-4 md:px-12 max-w-[1280px] mx-auto w-full">
-          <p className="font-mono text-[#e11d48] text-[11px] uppercase tracking-[0.2em] font-bold mb-3">Our Story</p>
+          <p className="font-mono text-[#f97316] text-[11px] uppercase tracking-[0.2em] font-bold mb-3">Our Story</p>
           <h1 className="text-[34px] sm:text-[48px] md:text-[68px] font-extrabold tracking-tight leading-[1.05] text-white mb-4 max-w-3xl">
-            Built for the <span className="text-[#e11d48]">Drivers of Watford.</span>
+            Built for the <span className="text-[#f97316]">Drivers of Watford.</span>
           </h1>
           <p className="text-[#9aadcc] text-[15px] sm:text-[17px] leading-relaxed max-w-lg">
             Mobile Tyres Watford 24/7 was founded on a simple premise: professional tyre service should come to you — not the other way around.
@@ -114,7 +114,7 @@ export default function AboutPage() {
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div className="reveal">
-              <p className="font-mono text-[#e11d48] text-[11px] uppercase tracking-[0.2em] font-bold mb-3">Who We Are</p>
+              <p className="font-mono text-[#f97316] text-[11px] uppercase tracking-[0.2em] font-bold mb-3">Who We Are</p>
               <h2 className="text-[26px] sm:text-[32px] md:text-[40px] font-extrabold tracking-tight text-white mb-5 leading-tight">
                 Watford&apos;s Trusted Mobile Tyre Team
               </h2>
@@ -141,8 +141,8 @@ export default function AboutPage() {
                   className="w-full h-52 sm:h-64 object-cover opacity-80"
                 />
                 <div className="bg-[#131b2e] p-5 flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#e11d48]/10 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-[#e11d48] text-[20px]">verified</span>
+                  <div className="w-10 h-10 rounded-xl bg-[#f97316]/10 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-[#f97316] text-[20px]">verified</span>
                   </div>
                   <div>
                     <p className="text-white font-bold text-[14px] mb-1">Experienced &amp; Fully Insured</p>
@@ -163,7 +163,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat, i) => (
               <div key={stat.label} className="reveal text-center py-7 sm:py-10 px-3 rounded-2xl bg-[#0b1326] border border-[#1e2d4a]">
-                <div className="text-[36px] sm:text-[44px] font-extrabold tracking-tight text-[#e11d48] leading-none mb-1">
+                <div className="text-[36px] sm:text-[44px] font-extrabold tracking-tight text-[#f97316] leading-none mb-1">
                   <span ref={(el) => { counterRefs.current[i] = el }} data-idx={i}>0</span>
                   <span>{stat.suffix}</span>
                 </div>
@@ -178,18 +178,18 @@ export default function AboutPage() {
       <section className="py-14 sm:py-20 bg-[#0b1326]">
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto">
           <div className="text-center mb-10 reveal">
-            <p className="font-mono text-[#e11d48] text-[11px] uppercase tracking-[0.2em] font-bold mb-2">What We Stand For</p>
+            <p className="font-mono text-[#f97316] text-[11px] uppercase tracking-[0.2em] font-bold mb-2">What We Stand For</p>
             <h2 className="text-[26px] sm:text-[32px] md:text-[40px] font-extrabold tracking-tight text-white">Our Core Values</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {values.map((v, i) => (
               <div
                 key={v.title}
-                className="reveal flex gap-4 p-5 rounded-2xl bg-[#131b2e] border border-[#1e2d4a] hover:border-[#e11d48]/30 transition-colors"
+                className="reveal flex gap-4 p-5 rounded-2xl bg-[#131b2e] border border-[#1e2d4a] hover:border-[#f97316]/30 transition-colors"
                 style={{ transitionDelay: `${(i % 3) * 80}ms` }}
               >
-                <div className="w-10 h-10 rounded-xl bg-[#e11d48]/10 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-[#e11d48] text-[20px]">{v.icon}</span>
+                <div className="w-10 h-10 rounded-xl bg-[#f97316]/10 flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-[#f97316] text-[20px]">{v.icon}</span>
                 </div>
                 <div>
                   <p className="text-white font-bold text-[14px] mb-1">{v.title}</p>
@@ -213,13 +213,13 @@ export default function AboutPage() {
                   className="w-full h-56 sm:h-72 object-cover opacity-75"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0b1326] to-transparent p-5">
-                  <p className="font-mono text-[10px] text-[#ffb3b6] uppercase tracking-widest mb-1">Response Time</p>
+                  <p className="font-mono text-[10px] text-[#fed7aa] uppercase tracking-widest mb-1">Response Time</p>
                   <p className="text-[22px] sm:text-[26px] font-extrabold text-white">Under 60 Minutes</p>
                 </div>
               </div>
             </div>
             <div className="reveal order-1 lg:order-2">
-              <p className="font-mono text-[#e11d48] text-[11px] uppercase tracking-[0.2em] font-bold mb-3">How It Works</p>
+              <p className="font-mono text-[#f97316] text-[11px] uppercase tracking-[0.2em] font-bold mb-3">How It Works</p>
               <h2 className="text-[26px] sm:text-[32px] md:text-[40px] font-extrabold tracking-tight text-white mb-7 leading-tight">
                 Your Tyre Service, Your Location
               </h2>
@@ -230,7 +230,7 @@ export default function AboutPage() {
                   { step: '03', title: 'Professional Service', desc: 'Tyre fitted, balanced, torqued to spec — done right, on-site, every time.' },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4">
-                    <span className="font-mono text-[#e11d48] text-[12px] font-bold pt-0.5 shrink-0">{item.step}</span>
+                    <span className="font-mono text-[#f97316] text-[12px] font-bold pt-0.5 shrink-0">{item.step}</span>
                     <div>
                       <p className="text-white font-bold text-[15px] mb-1">{item.title}</p>
                       <p className="text-[#7a90b8] text-[13px] leading-relaxed">{item.desc}</p>
@@ -244,7 +244,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-14 sm:py-20 bg-[#e11d48]">
+      <section className="py-14 sm:py-20 bg-[#f97316]">
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto text-center">
           <h2 className="text-[26px] sm:text-[32px] md:text-[44px] font-extrabold tracking-tight text-white mb-3">
             Ready to Experience Mobile Tyre Service?
@@ -255,7 +255,7 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="tel:07466756907"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-[#e11d48] px-8 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider hover:bg-[#fff5f6] transition-colors"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-[#f97316] px-8 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider hover:bg-[#fff7ed] transition-colors"
             >
               <span className="material-symbols-outlined text-[18px]">call</span>
               Call 07466 756907
