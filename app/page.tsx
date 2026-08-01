@@ -45,60 +45,60 @@ const schemaData = {
 
 const googleReviews = [
   {
-    author: 'James Harrison',
-    initials: 'JH',
-    color: '#ea4335',
-    ago: '2 weeks ago',
-    text: 'Fantastic service! Had a flat tyre at 11pm and they arrived within 45 minutes. Professional, friendly and reasonably priced. Highly recommend Mobile Tyres Watford 24/7!',
+    author: 'Tom Griffiths',
+    initials: 'TG',
+    color: '#f97316',
+    ago: '1 week ago',
+    text: 'Called at 10pm with a flat tyre and the technician arrived in under 40 minutes. Sorted the puncture quickly, very professional. Highly recommend for anyone in Watford needing help fast.',
   },
   {
-    author: 'Sarah Mitchell',
-    initials: 'SM',
+    author: 'Priya Sharma',
+    initials: 'PS',
     color: '#4285f4',
-    ago: '1 month ago',
-    text: 'Called them on a Sunday morning with a puncture and they were at my door within the hour. Sorted the tyre quickly and the price was very fair. Will definitely use again.',
+    ago: '2 weeks ago',
+    text: 'Booked a full set of new tyres for my SUV. They came to my home in Bushey, fitted and balanced all four in about an hour. Great price and no fuss. Will use again.',
   },
   {
-    author: 'David Okafor',
-    initials: 'DO',
+    author: 'Nathan Cole',
+    initials: 'NC',
     color: '#34a853',
     ago: '3 weeks ago',
-    text: 'Great mobile tyre fitting service. They came to my office in Watford and changed all four tyres while I was in meetings. Super convenient and professionally done.',
+    text: 'Brilliant service. Had a slow puncture and they came to my workplace in Watford and repaired it during my lunch break. Very convenient and affordable.',
   },
   {
-    author: 'Emma Clarke',
-    initials: 'EC',
+    author: 'Fatima Hussain',
+    initials: 'FH',
     color: '#9c27b0',
-    ago: '2 months ago',
-    text: 'Needed a locking wheel nut removed — no other garage could help quickly but these guys came out the same day and sorted it without any damage. Brilliant service.',
-  },
-  {
-    author: 'Mohammed Ali',
-    initials: 'MA',
-    color: '#ff6d00',
     ago: '1 month ago',
-    text: 'Very fast response, good pricing and excellent workmanship. Got two new tyres fitted on my driveway. Will be using them for all my tyre needs going forward.',
+    text: 'Lost my locking wheel nut key and no local garage could help quickly. These guys came out the same afternoon and removed it without scratching my alloys. Brilliant.',
   },
   {
-    author: 'Claire Thompson',
-    initials: 'CT',
+    author: 'Oliver Reed',
+    initials: 'OR',
+    color: '#00897b',
+    ago: '1 month ago',
+    text: 'Really impressed. Had two tyres replaced at my driveway in St Albans. The technician was friendly, knowledgeable and the job was done perfectly. Great value for money.',
+  },
+  {
+    author: 'Jessica Turner',
+    initials: 'JT',
     color: '#e91e63',
     ago: '6 weeks ago',
-    text: 'I got a puncture on the M25 and they arrived roadside within 50 minutes. Absolute lifesavers. Very professional and kept me informed throughout.',
+    text: 'Got a puncture on the way to work near Hemel Hempstead. They arrived roadside within 45 minutes and changed the tyre on the spot. Absolutely saved my day. 5 stars.',
   },
   {
-    author: 'Raj Patel',
-    initials: 'RP',
-    color: '#00897b',
+    author: 'Amir Khan',
+    initials: 'AK',
+    color: '#ea4335',
     ago: '2 months ago',
-    text: 'Used them for a full set of new tyres. Came to my home, completed the job efficiently and the wheel balancing is spot on. No vibration at all. Really impressed.',
+    text: 'Used Mobile Tyres Watford 24/7 for a tyre rotation and wheel balance. Came to my house in Rickmansworth. Smooth, professional job — no vibration at all afterwards.',
   },
   {
-    author: 'Lucy Barnes',
-    initials: 'LB',
-    color: '#4285f4',
-    ago: '3 months ago',
-    text: 'Reliable, punctual and great value. I had my tyres rotated and balanced at home which saved me so much time. 10/10 service.',
+    author: 'Sophie Williams',
+    initials: 'SW',
+    color: '#ff6d00',
+    ago: '2 months ago',
+    text: 'Excellent emergency tyre service. Called at midnight after a blowout and they were with me within an hour. Super friendly and very competitively priced. Cannot recommend enough.',
   },
 ]
 
@@ -112,6 +112,13 @@ const GoogleG = () => (
 )
 
 const services = [
+  {
+    img: '/The Full Shop Experienc-airanko.webp',
+    alt: 'Mobile tyre fitting at home office roadside Watford',
+    title: 'Mobile Tyre Fitting',
+    desc: 'We come to your home, office, or roadside location with everything needed to fit your tyres professionally. No garage visit required — fully mobile, fully equipped.',
+    tags: ['Home / Office', 'Roadside', 'Fully Equipped'],
+  },
   {
     img: '/Tire Change & Balancing-airanko.webp',
     alt: 'Technician performing mobile tyre puncture repair',
@@ -161,13 +168,6 @@ const services = [
     desc: 'Flat tyre in the middle of the night or on the motorway? Our 24/7 emergency flat tyre service dispatches immediately — we typically arrive within 60 minutes anywhere in Watford.',
     tags: ['24/7', '60-Min ETA', 'Roadside'],
   },
-  {
-    img: '/The Full Shop Experienc-airanko.webp',
-    alt: 'Mobile tyre fitting at home office roadside Watford',
-    title: 'Mobile Tyre Fitting',
-    desc: 'We come to your home, office, or roadside location with everything needed to fit your tyres professionally. No garage visit required — fully mobile, fully equipped.',
-    tags: ['Home / Office', 'Roadside', 'Fully Equipped'],
-  },
 ]
 
 export default function HomePage() {
@@ -180,18 +180,26 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="relative min-h-[92vh] flex items-center bg-[#060e20] overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/Home Page Hero Section Background Image-airanko.webp"
-            alt="Professional mobile tyre fitting technician at work in Watford"
-            fill
-            priority
-            quality={40}
-            sizes="100vw"
-            className="object-cover object-center opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060e20] via-[#060e20]/80 to-[#060e20]/10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#060e20] via-[#060e20]/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#060e20]/40 via-transparent to-transparent" />
+          {/* Decorative tyre rings — right side */}
+          <div className="absolute right-[-80px] top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true">
+            <svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-[0.06]">
+              <circle cx="320" cy="320" r="300" stroke="#f97316" strokeWidth="48"/>
+              <circle cx="320" cy="320" r="200" stroke="#f97316" strokeWidth="24"/>
+              <circle cx="320" cy="320" r="110" stroke="#f97316" strokeWidth="36"/>
+              <circle cx="320" cy="320" r="40" fill="#f97316"/>
+              {/* spokes */}
+              {[0,45,90,135,180,225,270,315].map((deg) => (
+                <line key={deg}
+                  x1="320" y1="280" x2="320" y2="130"
+                  stroke="#f97316" strokeWidth="14"
+                  transform={`rotate(${deg} 320 320)`}
+                />
+              ))}
+            </svg>
+          </div>
+          {/* Subtle radial glow behind the rings */}
+          <div className="absolute right-0 top-0 w-2/3 h-full bg-gradient-to-l from-[#f97316]/5 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#060e20] via-[#060e20]/10 to-transparent" />
         </div>
 
         <div className="relative z-10 px-4 md:px-12 max-w-[1280px] mx-auto w-full py-20">
