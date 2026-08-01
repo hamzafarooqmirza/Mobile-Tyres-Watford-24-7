@@ -180,26 +180,17 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="relative min-h-[92vh] flex items-center bg-[#060e20] overflow-hidden">
         <div className="absolute inset-0">
-          {/* Decorative tyre rings — right side */}
-          <div className="absolute right-[-80px] top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true">
-            <svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-[0.06]">
-              <circle cx="320" cy="320" r="300" stroke="#f97316" strokeWidth="48"/>
-              <circle cx="320" cy="320" r="200" stroke="#f97316" strokeWidth="24"/>
-              <circle cx="320" cy="320" r="110" stroke="#f97316" strokeWidth="36"/>
-              <circle cx="320" cy="320" r="40" fill="#f97316"/>
-              {/* spokes */}
-              {[0,45,90,135,180,225,270,315].map((deg) => (
-                <line key={deg}
-                  x1="320" y1="280" x2="320" y2="130"
-                  stroke="#f97316" strokeWidth="14"
-                  transform={`rotate(${deg} 320 320)`}
-                />
-              ))}
-            </svg>
-          </div>
-          {/* Subtle radial glow behind the rings */}
-          <div className="absolute right-0 top-0 w-2/3 h-full bg-gradient-to-l from-[#f97316]/5 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#060e20] via-[#060e20]/10 to-transparent" />
+          <Image
+            src="/Tire Change & Balancing-airanko.webp"
+            alt="Professional mobile tyre fitting technician at work in Watford"
+            fill
+            priority
+            quality={50}
+            sizes="100vw"
+            className="object-cover object-center opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060e20] via-[#060e20]/75 to-[#060e20]/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-[#060e20]/30" />
         </div>
 
         <div className="relative z-10 px-4 md:px-12 max-w-[1280px] mx-auto w-full py-20">
