@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
@@ -33,10 +34,14 @@ export default function Header() {
             className="flex items-center group shrink-0"
             aria-label="Mobile Tyres Watford 24/7 — Home"
           >
-            <span className="text-white font-extrabold text-[16px] sm:text-[18px] tracking-tight group-hover:text-[#f97316] transition-colors leading-tight">
-              Mobile Tyres<br className="sm:hidden" />{' '}
-              <span className="text-[#f97316]">Watford 24/7</span>
-            </span>
+            <Image
+              src="/mobile-tyre-watford-24-7-site-logo.webp"
+              alt="Mobile Tyres Watford 24/7 logo"
+              width={160}
+              height={48}
+              className="h-10 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}

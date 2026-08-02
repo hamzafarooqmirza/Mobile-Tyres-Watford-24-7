@@ -1,0 +1,26 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#060e20"/>
+  <!-- decorative tyre rings right side -->
+  <circle cx="980" cy="315" r="280" stroke="#f97316" stroke-width="48" fill="none" opacity="0.08"/>
+  <circle cx="980" cy="315" r="180" stroke="#f97316" stroke-width="24" fill="none" opacity="0.08"/>
+  <circle cx="980" cy="315" r="90" stroke="#f97316" stroke-width="32" fill="none" opacity="0.08"/>
+  <circle cx="980" cy="315" r="28" fill="#f97316" opacity="0.08"/>
+  <!-- left gradient overlay -->
+  <rect width="700" height="630" fill="url(#lg)"/>
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="700" y2="0">
+      <stop offset="0%" stop-color="#060e20" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#060e20" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- badge -->
+  <rect x="60" y="180" width="340" height="36" rx="18" fill="#f97316" fill-opacity="0.12"/>
+  <text x="80" y="203" font-family="monospace" font-size="13" font-weight="700" fill="#f97316" letter-spacing="3">24/7 MOBILE TYRE SERVICE · WATFORD</text>
+  <!-- headline -->
+  <text x="60" y="295" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="white">Mobile Tyres</text>
+  <text x="60" y="365" font-family="Arial Black, sans-serif" font-size="56" font-weight="900" fill="#f97316">Watford 24/7</text>
+  <!-- sub -->
+  <text x="62" y="415" font-family="Arial, sans-serif" font-size="22" fill="#7a90b8">Same day tyre fitting · Puncture repair · Emergency service</text>
+  <!-- phone -->
+  <text x="62" y="470" font-family="monospace" font-size="20" font-weight="700" fill="white">07466 756907 · 01923 240599</text>
+</svg>
