@@ -60,6 +60,13 @@ const services = [
     img: '/The Full Shop Experienc-airanko.webp',
     imgAlt: 'Mobile tyre fitting at home office or roadside Watford',
   },
+  {
+    title: 'Vehicle Mechanic',
+    desc: 'Need a qualified mechanic without the garage hassle? Our mobile vehicle mechanics come to your home or workplace in Watford to diagnose and fix mechanical issues on the spot.',
+    tags: ['On-Site', 'All Vehicles', 'Same Day'],
+    img: '/Tire Change & Balancing-airanko.webp',
+    imgAlt: 'Mobile vehicle mechanic service Watford',
+  },
 ]
 
 const faqs = [
@@ -117,6 +124,7 @@ export default function ServicesPage() {
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Locking Wheel Nut Removal', description: 'Specialist removal of locking wheel nuts when the key is lost or damaged.' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Flat Tyre Emergency Service', description: '24/7 emergency flat tyre service across Watford and surrounding Hertfordshire areas.' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile Tyre Fitting at Home, Office or Roadside', description: 'Fully mobile tyre fitting service at your preferred location in Watford.' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Vehicle Mechanic', description: 'Mobile vehicle mechanic service in Watford — diagnosis and mechanical repairs at your home or workplace.' } },
       ],
     },
   }
@@ -158,7 +166,7 @@ export default function ServicesPage() {
       <section className="py-20 bg-[#0b1326]">
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto">
           <div className="text-center mb-14 reveal">
-            <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">8 Services</p>
+            <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">9 Services</p>
             <h2 className="text-[32px] md:text-[40px] font-extrabold tracking-tight text-white">Everything You Need, On-Site</h2>
           </div>
 
