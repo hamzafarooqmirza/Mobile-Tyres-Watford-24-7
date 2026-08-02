@@ -168,6 +168,13 @@ const services = [
     desc: 'Flat tyre in the middle of the night or on the motorway? Our 24/7 emergency flat tyre service dispatches immediately — we typically arrive within 60 minutes anywhere in Watford.',
     tags: ['24/7', '60-Min ETA', 'Roadside'],
   },
+  {
+    img: '/Tire Change & Balancing-airanko.webp',
+    alt: 'Mobile vehicle mechanic service Watford',
+    title: 'Vehicle Mechanic',
+    desc: 'Need a qualified mechanic without the garage hassle? Our mobile vehicle mechanics come to your home or workplace in Watford to diagnose and fix mechanical issues on the spot.',
+    tags: ['On-Site', 'All Vehicles', 'Same Day'],
+  },
 ]
 
 export default function HomePage() {
