@@ -181,13 +181,13 @@ export default function HomePage() {
       <section className="relative min-h-[92vh] flex items-center bg-[#060e20] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/Tire Change & Balancing-airanko.webp"
+            src="/mobile-tyre-watford-24-7-hero-section-image.webp"
             alt="Professional mobile tyre fitting technician at work in Watford"
             fill
             priority
-            quality={50}
+            quality={60}
             sizes="100vw"
-            className="object-cover object-center opacity-40"
+            className="object-cover object-center opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#060e20] via-[#060e20]/75 to-[#060e20]/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#060e20] via-transparent to-[#060e20]/30" />
