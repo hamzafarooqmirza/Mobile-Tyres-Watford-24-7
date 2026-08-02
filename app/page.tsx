@@ -236,10 +236,16 @@ export default function HomePage() {
             </a>
           </div>
 
+          {/* Emergency time badge */}
+          <div className="inline-flex items-center gap-2 bg-[#f97316] text-white px-4 py-2 rounded-xl font-bold text-[14px] mb-6 shadow-lg shadow-[#f97316]/30">
+            <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>local_shipping</span>
+            Emergency Response: <span className="font-black ml-1">15–30 Min</span>
+          </div>
+
           {/* Trust bar */}
           <div className="flex flex-wrap gap-x-6 gap-y-3">
             {[
-              { icon: 'timer', text: '60-Min Emergency ETA' },
+              { icon: 'timer', text: '15–30 Min Emergency ETA' },
               { icon: 'verified_user', text: 'Fully Insured Technicians' },
               { icon: 'location_on', text: 'Watford & Hertfordshire' },
               { icon: 'price_check', text: 'Upfront Transparent Pricing' },
@@ -482,7 +488,7 @@ export default function HomePage() {
             {/* Map */}
             <div className="reveal rounded-2xl overflow-hidden border border-[#1e2d4a] shadow-xl">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39718.97185484076!2d-0.4368849!3d51.6564981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48764b05a4c26db9%3A0x6a31af4a3e3fcb2!2sWatford!5e0!3m2!1sen!2suk!4v1690000000000!5m2!1sen!2suk"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9929.243796210168!2d-0.3969499!3d51.6564981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48764b05a4c26db9%3A0x6a31af4a3e3fcb2!2sWatford%2C%20Hertfordshire!5e0!3m2!1sen!2suk!4v1690000000000!5m2!1sen!2suk"
                 width="100%"
                 height="380"
                 style={{ border: 0, display: 'block' }}
