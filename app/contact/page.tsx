@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useSettings } from '@/components/SettingsProvider'
+import { fmtPhone, telHref, waHref } from '@/lib/settings'
 
 const shopHours = [
   { day: 'Monday',    time: 'Available 24/7' },
@@ -40,6 +42,14 @@ const faqs = [
 ]
 
 export default function ContactPage() {
+  const settings = useSettings()
+  const mobile = settings.phoneMobile
+  const office = settings.phoneOffice
+  const wa = settings.whatsappNumber
+  const email = settings.email
+  const locality = settings.addressLocality
+  const region = settings.addressRegion
+
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const todayName = new Date().toLocaleDateString('en-GB', { weekday: 'long' })
   const [form, setForm] = useState({ name: '', phone: '', service: '', vehicle: '', address: '', notes: '' })
@@ -59,7 +69,7 @@ export default function ContactPage() {
       `*Address:* ${form.address || '—'}`,
       form.notes ? `*Notes:* ${form.notes}` : '',
     ].filter(Boolean).join('\n')
-    window.open(`https://wa.me/447466756907?text=${encodeURIComponent(msg)}`, '_blank')
+    window.open(`${waHref(wa)}?text=${encodeURIComponent(msg)}`, '_blank')
   }
 
   useEffect(() => {
@@ -74,18 +84,18 @@ export default function ContactPage() {
   const contactSchema = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Contact Mobile Tyres Watford 24/7 — Mobile Tyre Service Near Me',
+    name: `Contact Mobile Tyres Watford 24/7 — Mobile Tyre Service Near Me`,
     url: 'https://mobiletyreswatford247.co.uk/contact',
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'Mobile Tyres Watford 24/7',
       url: 'https://mobiletyreswatford247.co.uk',
-      telephone: ['07466756907', '01923240599'],
-      email: 'Mirahmed0101@gmail.com',
+      telephone: [mobile, office],
+      email,
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Watford',
-        addressRegion: 'Hertfordshire',
+        addressLocality: locality,
+        addressRegion: region,
         addressCountry: 'GB',
       },
       openingHoursSpecification: [
@@ -97,8 +107,8 @@ export default function ContactPage() {
         },
       ],
       contactPoint: [
-        { '@type': 'ContactPoint', telephone: '07466756907', contactType: 'customer service', availableLanguage: 'English', hoursAvailable: { '@type': 'OpeningHoursSpecification', opens: '00:00', closes: '23:59', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] } },
-        { '@type': 'ContactPoint', telephone: '01923240599', contactType: 'sales', availableLanguage: 'English' },
+        { '@type': 'ContactPoint', telephone: mobile, contactType: 'customer service', availableLanguage: 'English', hoursAvailable: { '@type': 'OpeningHoursSpecification', opens: '00:00', closes: '23:59', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] } },
+        { '@type': 'ContactPoint', telephone: office, contactType: 'sales', availableLanguage: 'English' },
       ],
     },
   }
@@ -125,51 +135,51 @@ export default function ContactPage() {
         {/* Mobile: horizontal action buttons */}
         <div className="grid grid-cols-2 sm:hidden border-b border-[#1e2d4a]">
           <a
-            href="tel:07466756907"
+            href={telHref(mobile)}
             className="flex flex-col items-center justify-center gap-1 py-4 bg-[#f97316] text-white font-bold text-[12px] uppercase tracking-wide"
           >
             <span className="material-symbols-outlined text-[20px]">local_shipping</span>
             Mobile 24/7
-            <span className="font-mono text-[10px] opacity-80 normal-case">07466 756907</span>
+            <span className="font-mono text-[10px] opacity-80 normal-case">{fmtPhone(mobile)}</span>
           </a>
           <a
-            href="tel:01923240599"
+            href={telHref(office)}
             className="flex flex-col items-center justify-center gap-1 py-4 bg-[#1e2d4a] text-white font-bold text-[12px] uppercase tracking-wide"
           >
             <span className="material-symbols-outlined text-[20px]">call</span>
             Office
-            <span className="font-mono text-[10px] opacity-80 normal-case">01923 240599</span>
+            <span className="font-mono text-[10px] opacity-80 normal-case">{fmtPhone(office)}</span>
           </a>
         </div>
 
         {/* sm+: 4-column cards */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5 px-4 md:px-12 max-w-[1280px] mx-auto py-12">
           <a
-            href="tel:07466756907"
+            href={telHref(mobile)}
             className="contact-card group bg-[#131b2e] border border-[#1e2d4a] rounded-2xl p-6 hover:border-[#f97316]/40 hover:shadow-lg hover:shadow-[#f97316]/5 transition-all text-center"
           >
             <div className="w-12 h-12 rounded-2xl bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center mx-auto mb-3 group-hover:bg-[#f97316]/20 transition-colors">
               <span className="material-symbols-outlined text-[#f97316] text-[24px]">local_shipping</span>
             </div>
             <p className="font-mono text-[10px] text-[#f97316] uppercase tracking-[0.15em] font-bold mb-1">Mobile Service</p>
-            <p className="text-[18px] font-extrabold text-white mb-0.5">07466 756907</p>
-            <p className="text-[#7a90b8] text-[12px]">24/7 — Anywhere in Watford</p>
+            <p className="text-[18px] font-extrabold text-white mb-0.5">{fmtPhone(mobile)}</p>
+            <p className="text-[#7a90b8] text-[12px]">24/7 — Anywhere in {locality}</p>
           </a>
 
           <a
-            href="tel:01923240599"
+            href={telHref(office)}
             className="contact-card group bg-[#131b2e] border border-[#1e2d4a] rounded-2xl p-6 hover:border-[#f97316]/40 hover:shadow-lg hover:shadow-[#f97316]/5 transition-all text-center"
           >
             <div className="w-12 h-12 rounded-2xl bg-[#f97316]/10 border border-[#f97316]/20 flex items-center justify-center mx-auto mb-3 group-hover:bg-[#f97316]/20 transition-colors">
               <span className="material-symbols-outlined text-[#f97316] text-[24px]">call</span>
             </div>
             <p className="font-mono text-[10px] text-[#f97316] uppercase tracking-[0.15em] font-bold mb-1">Office</p>
-            <p className="text-[18px] font-extrabold text-white mb-0.5">01923 240599</p>
+            <p className="text-[18px] font-extrabold text-white mb-0.5">{fmtPhone(office)}</p>
             <p className="text-[#7a90b8] text-[12px]">General enquiries</p>
           </a>
 
           <a
-            href="https://wa.me/447466756907"
+            href={waHref(wa)}
             target="_blank"
             rel="noopener noreferrer"
             className="contact-card group bg-[#131b2e] border border-[#1e2d4a] rounded-2xl p-6 hover:border-[#25D366]/30 hover:shadow-lg hover:shadow-[#25D366]/5 transition-all text-center"
@@ -178,44 +188,44 @@ export default function ContactPage() {
               <span className="material-symbols-outlined text-[#25D366] text-[24px]">chat</span>
             </div>
             <p className="font-mono text-[10px] text-[#25D366] uppercase tracking-[0.15em] font-bold mb-1">WhatsApp</p>
-            <p className="text-[18px] font-extrabold text-white mb-0.5">07466 756907</p>
+            <p className="text-[18px] font-extrabold text-white mb-0.5">{fmtPhone(mobile)}</p>
             <p className="text-[#7a90b8] text-[12px]">Fastest for quotes</p>
           </a>
 
           <a
-            href="mailto:Mirahmed0101@gmail.com"
+            href={`mailto:${email}`}
             className="contact-card group bg-[#131b2e] border border-[#1e2d4a] rounded-2xl p-6 hover:border-[#fed7aa]/30 hover:shadow-lg hover:shadow-[#fed7aa]/5 transition-all text-center"
           >
             <div className="w-12 h-12 rounded-2xl bg-[#fed7aa]/10 border border-[#fed7aa]/20 flex items-center justify-center mx-auto mb-3 group-hover:bg-[#fed7aa]/20 transition-colors">
               <span className="material-symbols-outlined text-[#fed7aa] text-[24px]">mail</span>
             </div>
             <p className="font-mono text-[10px] text-[#fed7aa] uppercase tracking-[0.15em] font-bold mb-1">Email</p>
-            <p className="text-[13px] font-bold text-white mb-0.5 break-all leading-snug">Mirahmed0101@gmail.com</p>
+            <p className="text-[13px] font-bold text-white mb-0.5 break-all leading-snug">{email}</p>
             <p className="text-[#7a90b8] text-[12px]">Non-urgent enquiries</p>
           </a>
         </div>
 
         {/* Mobile: extra contact info */}
         <div className="sm:hidden divide-y divide-[#1e2d4a]">
-          <a href="https://wa.me/447466756907" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 px-4 py-4">
+          <a href={waHref(wa)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 px-4 py-4">
             <span className="material-symbols-outlined text-[#25D366] text-[20px] shrink-0">chat</span>
             <div>
               <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest">WhatsApp</p>
-              <p className="text-[#9aadcc] text-[13px] font-bold">07466 756907</p>
+              <p className="text-[#9aadcc] text-[13px] font-bold">{fmtPhone(mobile)}</p>
             </div>
           </a>
-          <a href="mailto:Mirahmed0101@gmail.com" className="flex items-center gap-4 px-4 py-4">
+          <a href={`mailto:${email}`} className="flex items-center gap-4 px-4 py-4">
             <span className="material-symbols-outlined text-[#fed7aa] text-[20px] shrink-0">mail</span>
             <div>
               <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest">Email</p>
-              <p className="text-[#9aadcc] text-[13px] break-all">Mirahmed0101@gmail.com</p>
+              <p className="text-[#9aadcc] text-[13px] break-all">{email}</p>
             </div>
           </a>
           <div className="flex items-center gap-4 px-4 py-4">
             <span className="material-symbols-outlined text-[#f97316] text-[20px] shrink-0">location_on</span>
             <div>
               <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest">Service Area</p>
-              <p className="text-[#9aadcc] text-[13px]">Watford, Hertfordshire &amp; surrounding areas</p>
+              <p className="text-[#9aadcc] text-[13px]">{locality}, {region} &amp; surrounding areas</p>
             </div>
           </div>
         </div>
@@ -262,7 +272,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label className="block font-mono text-[10px] text-[#7a90b8] uppercase tracking-widest mb-1.5">Service Address</label>
-                  <input type="text" placeholder="Your address in Watford / surrounding area" value={form.address} onChange={set('address')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white placeholder-[#4a5f80] rounded-xl py-3.5 px-4 outline-none focus:border-[#f97316] transition-colors text-[14px]" />
+                  <input type="text" placeholder={`Your address in ${locality} / surrounding area`} value={form.address} onChange={set('address')} className="w-full bg-[#131b2e] border border-[#1e2d4a] text-white placeholder-[#4a5f80] rounded-xl py-3.5 px-4 outline-none focus:border-[#f97316] transition-colors text-[14px]" />
                 </div>
                 <div>
                   <label className="block font-mono text-[10px] text-[#7a90b8] uppercase tracking-widest mb-1.5">Notes (optional)</label>
@@ -286,35 +296,35 @@ export default function ContactPage() {
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">location_on</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Service Area</p>
-                      <p className="text-[#9aadcc] text-[14px]">Watford, Hertfordshire &amp; surrounding areas</p>
+                      <p className="text-[#9aadcc] text-[14px]">{locality}, {region} &amp; surrounding areas</p>
                     </div>
                   </div>
-                  <a href="tel:07466756907" className="flex gap-3 items-start group">
+                  <a href={telHref(mobile)} className="flex gap-3 items-start group">
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">local_shipping</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Mobile Service 24/7</p>
-                      <p className="text-white font-bold text-[17px] group-hover:text-[#f97316] transition-colors">07466 756907</p>
+                      <p className="text-white font-bold text-[17px] group-hover:text-[#f97316] transition-colors">{fmtPhone(mobile)}</p>
                     </div>
                   </a>
-                  <a href="tel:01923240599" className="flex gap-3 items-start group">
+                  <a href={telHref(office)} className="flex gap-3 items-start group">
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">call</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Office</p>
-                      <p className="text-white font-bold text-[17px] group-hover:text-[#f97316] transition-colors">01923 240599</p>
+                      <p className="text-white font-bold text-[17px] group-hover:text-[#f97316] transition-colors">{fmtPhone(office)}</p>
                     </div>
                   </a>
-                  <a href="https://wa.me/447466756907" target="_blank" rel="noopener noreferrer" className="flex gap-3 items-start group">
+                  <a href={waHref(wa)} target="_blank" rel="noopener noreferrer" className="flex gap-3 items-start group">
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">chat</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">WhatsApp</p>
-                      <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[14px] font-bold">07466 756907</p>
+                      <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[14px] font-bold">{fmtPhone(mobile)}</p>
                     </div>
                   </a>
-                  <a href="mailto:Mirahmed0101@gmail.com" className="flex gap-3 items-start group">
+                  <a href={`mailto:${email}`} className="flex gap-3 items-start group">
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">mail</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Email</p>
-                      <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[13px] break-all">Mirahmed0101@gmail.com</p>
+                      <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[13px] break-all">{email}</p>
                     </div>
                   </a>
                 </div>
@@ -328,7 +338,7 @@ export default function ContactPage() {
                 <div className="px-5 py-3 border-b border-[#1e2d4a]">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="material-symbols-outlined text-[#f97316] text-[16px]">local_shipping</span>
-                    <span className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest font-bold">Mobile — 07466 756907</span>
+                    <span className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest font-bold">Mobile — {fmtPhone(mobile)}</span>
                   </div>
                   {shopHours.map((row) => {
                     const isToday = row.day === todayName

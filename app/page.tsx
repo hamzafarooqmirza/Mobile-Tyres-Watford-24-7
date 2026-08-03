@@ -3,45 +3,8 @@ import Image from 'next/image'
 import FaqAccordion from '@/components/FaqAccordion'
 import BookingForm from '@/components/BookingForm'
 import RevealObserver from '@/components/RevealObserver'
-
-const faqSchemaData = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'How quickly can Mobile Tyres Watford 24/7 arrive for emergency tyre service near me?', acceptedAnswer: { '@type': 'Answer', text: 'On average under 60 minutes across Watford and surrounding areas, depending on traffic and availability. Our emergency tyre service line is open 24/7 — including nights, weekends, and bank holidays.' } },
-    { '@type': 'Question', name: 'Do you offer same day mobile tyre fitting?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Mobile Tyres Watford 24/7 offers same day mobile tyre fitting for tyre changes, puncture repairs, and new tyre installations across Watford and nearby areas — subject to technician availability. Call or WhatsApp us on 07466756907.' } },
-    { '@type': 'Question', name: 'What does your mobile tyre service include?', acceptedAnswer: { '@type': 'Answer', text: 'Our mobile tyre service covers tyre puncture repair, new tyre fitting, tyre replacement, wheel balancing, tyre rotation, locking wheel nut removal, and flat tyre emergency service — all performed at your home, office, or roadside.' } },
-    { '@type': 'Question', name: 'Can you repair my flat tyre, or do I need a full tyre replacement?', acceptedAnswer: { '@type': 'Answer', text: "In many cases a flat tyre can be repaired rather than replaced. Our technician will inspect the puncture on-site — if it's a simple nail or screw in the tread area, a tyre puncture repair is usually sufficient." } },
-  ],
-}
-
-const schemaData = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Mobile Tyres Watford 24/7',
-  url: 'https://mobiletyreswatford247.co.uk',
-  telephone: ['07466756907', '01923240599'],
-  email: 'Mirahmed0101@gmail.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Watford',
-    addressRegion: 'Hertfordshire',
-    addressCountry: 'GB',
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '00:00',
-      closes: '23:59',
-    },
-  ],
-  description:
-    'Mobile Tyres Watford 24/7 provides same day mobile tyre fitting, tyre puncture repair, wheel balancing, tyre rotation, locking wheel nut removal, and emergency flat tyre service in Watford and surrounding areas.',
-  areaServed: ['Watford', 'Hemel Hempstead', 'St Albans', 'Bushey', 'Rickmansworth', 'Abbots Langley', 'Chorleywood'],
-  priceRange: '££',
-  sameAs: ['https://wa.me/447466756907'],
-}
+import { fmtPhone, telHref, waHref } from '@/lib/settings'
+import { getSettings } from '@/lib/get-settings'
 
 const googleReviews = [
   {
@@ -177,7 +140,54 @@ const services = [
   },
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+  const settings = await getSettings()
+  const mobile = settings.phoneMobile
+  const office = settings.phoneOffice
+  const wa = settings.whatsappNumber
+  const email = settings.email
+  const locality = settings.addressLocality
+  const region = settings.addressRegion
+
+  const faqSchemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'How quickly can Mobile Tyres Watford 24/7 arrive for emergency tyre service near me?', acceptedAnswer: { '@type': 'Answer', text: 'On average under 60 minutes across Watford and surrounding areas, depending on traffic and availability. Our emergency tyre service line is open 24/7 — including nights, weekends, and bank holidays.' } },
+      { '@type': 'Question', name: 'Do you offer same day mobile tyre fitting?', acceptedAnswer: { '@type': 'Answer', text: `Yes. Mobile Tyres Watford 24/7 offers same day mobile tyre fitting for tyre changes, puncture repairs, and new tyre installations across Watford and nearby areas — subject to technician availability. Call or WhatsApp us on ${mobile}.` } },
+      { '@type': 'Question', name: 'What does your mobile tyre service include?', acceptedAnswer: { '@type': 'Answer', text: 'Our mobile tyre service covers tyre puncture repair, new tyre fitting, tyre replacement, wheel balancing, tyre rotation, locking wheel nut removal, and flat tyre emergency service — all performed at your home, office, or roadside.' } },
+      { '@type': 'Question', name: 'Can you repair my flat tyre, or do I need a full tyre replacement?', acceptedAnswer: { '@type': 'Answer', text: "In many cases a flat tyre can be repaired rather than replaced. Our technician will inspect the puncture on-site — if it's a simple nail or screw in the tread area, a tyre puncture repair is usually sufficient." } },
+    ],
+  }
+
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Mobile Tyres Watford 24/7',
+    url: 'https://mobiletyreswatford247.co.uk',
+    telephone: [mobile, office],
+    email,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: locality,
+      addressRegion: region,
+      addressCountry: 'GB',
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+      },
+    ],
+    description:
+      `Mobile Tyres Watford 24/7 provides same day mobile tyre fitting, tyre puncture repair, wheel balancing, tyre rotation, locking wheel nut removal, and emergency flat tyre service in ${locality} and surrounding areas.`,
+    areaServed: [locality, 'Hemel Hempstead', 'St Albans', 'Bushey', 'Rickmansworth', 'Abbots Langley', 'Chorleywood'],
+    priceRange: '££',
+    sameAs: [waHref(wa)],
+  }
+
   return (
     <main className="pb-20 md:pb-0">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
@@ -204,36 +214,36 @@ export default function HomePage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f97316]/10 border border-[#f97316]/25 text-[#f97316] mb-5">
             <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>stars</span>
-            <span className="font-mono text-[11px] uppercase tracking-widest font-bold">24/7 Mobile Tyre Service · Watford</span>
+            <span className="font-mono text-[11px] uppercase tracking-widest font-bold">24/7 Mobile Tyre Service · {locality}</span>
           </div>
 
           <h1 className="text-[42px] sm:text-[56px] md:text-[72px] font-extrabold tracking-tight leading-[1.05] text-white mb-5 max-w-3xl">
             Mobile Tyre Fitting at Your Doorstep —{' '}
-            <span className="text-[#f97316]">Watford &amp; Surrounding Areas</span>
+            <span className="text-[#f97316]">{locality} &amp; Surrounding Areas</span>
           </h1>
 
           <p className="text-[#9aadcc] text-[16px] sm:text-[18px] leading-relaxed max-w-xl mb-8">
-            Mobile Tyres Watford 24/7 is Watford&apos;s trusted mobile tyre service. Whether you need same day tyre fitting, puncture repair, wheel balancing, or emergency tyre service — our technicians come to your home, office, or roadside anywhere in Watford.
+            Mobile Tyres Watford 24/7 is {locality}&apos;s trusted mobile tyre service. Whether you need same day tyre fitting, puncture repair, wheel balancing, or emergency tyre service — our technicians come to your home, office, or roadside anywhere in {locality}.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-10">
             <a
-              href="tel:07466756907"
+              href={telHref(mobile)}
               className="flex items-center justify-center gap-2 bg-[#f97316] text-white px-7 py-4 rounded-xl font-bold text-[15px] uppercase tracking-wide emergency-pulse shadow-lg shadow-[#f97316]/20"
             >
               <span className="material-symbols-outlined text-[20px]">local_shipping</span>
-              Mobile 24/7 — 07466 756907
+              Mobile 24/7 — {fmtPhone(mobile)}
             </a>
             <a
-              href="tel:01923240599"
+              href={telHref(office)}
               className="flex items-center justify-center gap-2 bg-[#1e2d4a] border border-[#2d4470] text-white px-7 py-4 rounded-xl font-bold text-[15px] uppercase tracking-wide hover:bg-[#2d4470] transition-colors"
             >
               <span className="material-symbols-outlined text-[20px]">call</span>
-              Office — 01923 240599
+              Office — {fmtPhone(office)}
             </a>
             <a
-              href="https://wa.me/447466756907"
+              href={waHref(wa)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-[#25D366] text-white px-7 py-4 rounded-xl font-bold text-[15px] uppercase tracking-wide"
@@ -254,7 +264,7 @@ export default function HomePage() {
             {[
               { icon: 'timer', text: '15–30 Min Emergency ETA' },
               { icon: 'verified_user', text: 'Fully Insured Technicians' },
-              { icon: 'location_on', text: 'Watford & Hertfordshire' },
+              { icon: 'location_on', text: `${locality} & ${region}` },
               { icon: 'price_check', text: 'Upfront Transparent Pricing' },
             ].map((item) => (
               <div key={item.text} className="flex items-center gap-1.5 text-[#7a90b8] text-[13px]">
@@ -277,7 +287,7 @@ export default function HomePage() {
                 <span key={i} style={{ color: '#FBBC05', fontSize: 13 }}>★</span>
               ))}
             </span>
-            <span className="text-[#7a90b8] text-[13px]">5.0 · Watford</span>
+            <span className="text-[#7a90b8] text-[13px]">5.0 · {locality}</span>
           </div>
         </div>
 
@@ -330,7 +340,7 @@ export default function HomePage() {
         <div className="px-4 md:px-12 max-w-[1280px] mx-auto">
           <div className="text-center mb-6 reveal">
             <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">What We Do</p>
-            <h2 className="text-[30px] md:text-[38px] font-extrabold tracking-tight text-white">Mobile Tyre Services We Offer in Watford &amp; Surrounding Areas</h2>
+            <h2 className="text-[30px] md:text-[38px] font-extrabold tracking-tight text-white">Mobile Tyre Services We Offer in {locality} &amp; Surrounding Areas</h2>
           </div>
           <p className="text-center text-[#7a90b8] text-[15px] leading-relaxed max-w-2xl mx-auto mb-12 reveal">
             From routine tyre fitting to roadside emergency puncture repair, Mobile Tyres Watford 24/7 provides a full range of mobile tyre services delivered to your location. No tow truck, no waiting room — just professional mobile tyre fitting wherever you are.
@@ -387,7 +397,7 @@ export default function HomePage() {
                   {
                     icon: 'speed',
                     title: 'Rapid Emergency Response',
-                    desc: 'Under 60 minutes to your location across Watford and surrounding areas — 24/7, including nights and weekends.',
+                    desc: `Under 60 minutes to your location across ${locality} and surrounding areas — 24/7, including nights and weekends.`,
                   },
                   {
                     icon: 'build',
@@ -456,11 +466,11 @@ export default function HomePage() {
               <div className="reveal">
                 <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-1">Service Area</p>
                 <h2 className="text-white font-bold text-[20px] md:text-[24px] leading-snug">
-                  Mobile Tyre Service Near You —<br className="hidden sm:block" /> Watford &amp; Hertfordshire
+                  Mobile Tyre Service Near You —<br className="hidden sm:block" /> {locality} &amp; {region}
                 </h2>
               </div>
               <div className="reveal flex flex-wrap gap-2 justify-start sm:justify-end">
-                {['Watford', 'Hemel Hempstead', 'St Albans', 'Bushey', 'Rickmansworth', 'Abbots Langley', 'Chorleywood'].map((area) => (
+                {[locality, 'Hemel Hempstead', 'St Albans', 'Bushey', 'Rickmansworth', 'Abbots Langley', 'Chorleywood'].map((area) => (
                   <span key={area} className="px-3 py-1.5 bg-[#0b1326] border border-[#1e2d4a] rounded-full text-[13px] text-[#9aadcc] font-medium">
                     {area}
                   </span>
@@ -469,26 +479,26 @@ export default function HomePage() {
             </div>
 
             <p className="reveal text-[#7a90b8] text-[14px] leading-relaxed max-w-3xl">
-              Mobile Tyres Watford 24/7 provides mobile tyre repair near you across Watford and the surrounding Hertfordshire area. Whether you need a puncture repair in Hemel Hempstead, a tyre change near you in St Albans, or same day mobile tyre fitting in Bushey — we come to you.
+              Mobile Tyres Watford 24/7 provides mobile tyre repair near you across {locality} and the surrounding {region} area. Whether you need a puncture repair in Hemel Hempstead, a tyre change near you in St Albans, or same day mobile tyre fitting in Bushey — we come to you.
             </p>
 
             {/* NAP Block */}
             <div className="reveal flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-2">
               <div className="flex items-center gap-2 text-[#7a90b8] text-[13px]">
                 <span className="material-symbols-outlined text-[#f97316] text-[15px]">location_on</span>
-                Watford, Hertfordshire
+                {locality}, {region}
               </div>
-              <a href="tel:07466756907" className="flex items-center gap-2 text-[#7a90b8] text-[13px] hover:text-[#dae2fd] transition-colors">
+              <a href={telHref(mobile)} className="flex items-center gap-2 text-[#7a90b8] text-[13px] hover:text-[#dae2fd] transition-colors">
                 <span className="material-symbols-outlined text-[#f97316] text-[15px]">local_shipping</span>
-                Mobile 24/7: 07466 756907
+                Mobile 24/7: {fmtPhone(mobile)}
               </a>
-              <a href="tel:01923240599" className="flex items-center gap-2 text-[#7a90b8] text-[13px] hover:text-[#dae2fd] transition-colors">
+              <a href={telHref(office)} className="flex items-center gap-2 text-[#7a90b8] text-[13px] hover:text-[#dae2fd] transition-colors">
                 <span className="material-symbols-outlined text-[#f97316] text-[15px]">call</span>
-                Office: 01923 240599
+                Office: {fmtPhone(office)}
               </a>
-              <a href="mailto:Mirahmed0101@gmail.com" className="flex items-center gap-2 text-[#7a90b8] text-[13px] hover:text-[#dae2fd] transition-colors">
+              <a href={`mailto:${email}`} className="flex items-center gap-2 text-[#7a90b8] text-[13px] hover:text-[#dae2fd] transition-colors">
                 <span className="material-symbols-outlined text-[#f97316] text-[15px]">mail</span>
-                Mirahmed0101@gmail.com
+                {email}
               </a>
             </div>
 
@@ -521,7 +531,7 @@ export default function HomePage() {
                 Get a Fast Quote for Mobile Tyre Service Near You
               </h2>
               <p className="text-[#7a90b8] text-[14px] mb-7">
-                Need a tyre puncture repair, tyre fitting, or emergency tyre service in Watford? Fill out the form below and we will respond within 5–10 minutes during business hours.
+                Need a tyre puncture repair, tyre fitting, or emergency tyre service in {locality}? Fill out the form below and we will respond within 5–10 minutes during business hours.
               </p>
               <BookingForm />
             </div>
@@ -531,39 +541,39 @@ export default function HomePage() {
               <div className="bg-[#131b2e] border border-[#1e2d4a] rounded-2xl p-6">
                 <p className="font-mono text-[11px] text-[#f97316] uppercase tracking-[0.15em] font-bold mb-5">Contact Us Directly</p>
                 <div className="space-y-5">
-                  <a href="tel:07466756907" className="flex gap-3 items-start group">
+                  <a href={telHref(mobile)} className="flex gap-3 items-start group">
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">local_shipping</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Mobile Service 24/7</p>
-                      <p className="text-white font-bold text-[18px] group-hover:text-[#f97316] transition-colors">07466 756907</p>
+                      <p className="text-white font-bold text-[18px] group-hover:text-[#f97316] transition-colors">{fmtPhone(mobile)}</p>
                     </div>
                   </a>
-                  <a href="tel:01923240599" className="flex gap-3 items-start group">
+                  <a href={telHref(office)} className="flex gap-3 items-start group">
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">call</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Office</p>
-                      <p className="text-white font-bold text-[18px] group-hover:text-[#f97316] transition-colors">01923 240599</p>
+                      <p className="text-white font-bold text-[18px] group-hover:text-[#f97316] transition-colors">{fmtPhone(office)}</p>
                     </div>
                   </a>
-                  <a href="https://wa.me/447466756907" target="_blank" rel="noopener noreferrer" className="flex gap-3 items-start group">
+                  <a href={waHref(wa)} target="_blank" rel="noopener noreferrer" className="flex gap-3 items-start group">
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">chat</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">WhatsApp</p>
-                      <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[14px] font-bold">07466 756907</p>
+                      <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[14px] font-bold">{fmtPhone(mobile)}</p>
                     </div>
                   </a>
-                  <a href="mailto:Mirahmed0101@gmail.com" className="flex gap-3 items-start group">
+                  <a href={`mailto:${email}`} className="flex gap-3 items-start group">
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">mail</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Email</p>
-                      <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[13px] break-all">Mirahmed0101@gmail.com</p>
+                      <p className="text-[#9aadcc] group-hover:text-white transition-colors text-[13px] break-all">{email}</p>
                     </div>
                   </a>
                   <div className="flex gap-3 items-start">
                     <span className="material-symbols-outlined text-[#f97316] text-[18px] mt-0.5 shrink-0">location_on</span>
                     <div>
                       <p className="font-mono text-[10px] text-[#4a5f80] uppercase tracking-widest mb-0.5">Service Area</p>
-                      <p className="text-[#9aadcc] text-[14px]">Watford, Hertfordshire &amp; surrounding areas</p>
+                      <p className="text-[#9aadcc] text-[14px]">{locality}, {region} &amp; surrounding areas</p>
                     </div>
                   </div>
                 </div>
@@ -586,7 +596,7 @@ export default function HomePage() {
           <div className="text-center mb-12 reveal">
             <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-2">FAQ</p>
             <h2 className="text-[28px] md:text-[32px] font-extrabold tracking-tight text-white">
-              Frequently Asked Questions — Mobile Tyre Service Watford
+              Frequently Asked Questions — Mobile Tyre Service {locality}
             </h2>
           </div>
           <FaqAccordion />
