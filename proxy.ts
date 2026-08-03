@@ -2,12 +2,10 @@ import { type NextRequest, NextResponse } from 'next/server'
 import { SESSION_COOKIE, verifyToken } from '@/lib/auth-token'
 
 const PROTECTED = ['/settings']
-const PUBLIC_UNDER_SETTINGS = ['/settings/setup']
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const isSetup = PUBLIC_UNDER_SETTINGS.some((p) => pathname.startsWith(p))
-  const isProtected = !isSetup && PROTECTED.some((p) => pathname.startsWith(p))
+  const isProtected = PROTECTED.some((p) => pathname.startsWith(p))
   const isLogin = pathname === '/login'
 
   if (!isProtected && !isLogin) return NextResponse.next()

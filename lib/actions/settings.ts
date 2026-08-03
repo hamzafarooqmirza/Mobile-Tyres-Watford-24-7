@@ -39,8 +39,7 @@ export async function saveSettings(
 
   const supabase = createServiceClient()
   const { error } = await supabase
-    .schema('mobile_tyres_watford')
-    .from('site_settings')
+    .from('mtw_site_settings')
     .upsert({
       id: 1,
       phone_mobile:     input.phoneMobile,
