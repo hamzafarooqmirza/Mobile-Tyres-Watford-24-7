@@ -46,12 +46,6 @@ export default function LoginForm() {
       >
         {pending ? 'Signing in…' : 'Sign In'}
       </button>
-      <p className="text-center text-[#7a90b8] text-xs">
-        First time?{' '}
-        <a href="/settings/setup" className="text-[#f97316] hover:underline">
-          Set up your admin password
-        </a>
-      </p>
     </form>
   )
 }
