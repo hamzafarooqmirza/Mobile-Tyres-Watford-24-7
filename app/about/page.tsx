@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { useSettings } from '@/components/SettingsProvider'
+import { fmtPhone, telHref } from '@/lib/settings'
 
 const stats = [
   { end: 5000, suffix: '+', label: 'Tyres Fitted', decimal: false },
@@ -20,6 +22,13 @@ const values = [
 ]
 
 export default function AboutPage() {
+  const settings = useSettings()
+  const mobile = settings.phoneMobile
+  const office = settings.phoneOffice
+  const email = settings.email
+  const locality = settings.addressLocality
+  const region = settings.addressRegion
+
   const counterRefs = useRef<(HTMLSpanElement | null)[]>([])
 
   useEffect(() => {
@@ -65,21 +74,21 @@ export default function AboutPage() {
     '@type': 'AboutPage',
     name: 'About Mobile Tyres Watford 24/7 — Mobile Tyre Service Watford',
     url: 'https://mobiletyreswatford247.co.uk/about',
-    description: 'Learn about Mobile Tyres Watford 24/7, Watford\'s trusted mobile tyre fitting service. Experienced technicians, 24/7 emergency tyre service, and professional wheel balancing across Hertfordshire.',
+    description: `Learn about Mobile Tyres Watford 24/7, ${locality}'s trusted mobile tyre fitting service. Experienced technicians, 24/7 emergency tyre service, and professional wheel balancing across ${region}.`,
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'Mobile Tyres Watford 24/7',
       url: 'https://mobiletyreswatford247.co.uk',
-      telephone: ['07466756907', '01923240599'],
-      email: 'Mirahmed0101@gmail.com',
+      telephone: [mobile, office],
+      email,
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Watford',
-        addressRegion: 'Hertfordshire',
+        addressLocality: locality,
+        addressRegion: region,
         addressCountry: 'GB',
       },
-      areaServed: ['Watford', 'Hemel Hempstead', 'St Albans', 'Bushey', 'Rickmansworth', 'Abbots Langley', 'Chorleywood'],
-      description: 'Mobile Tyres Watford 24/7 provides same day mobile tyre fitting, puncture repair, wheel balancing, and emergency tyre service in Watford and across Hertfordshire.',
+      areaServed: [locality, 'Hemel Hempstead', 'St Albans', 'Bushey', 'Rickmansworth', 'Abbots Langley', 'Chorleywood'],
+      description: `Mobile Tyres Watford 24/7 provides same day mobile tyre fitting, puncture repair, wheel balancing, and emergency tyre service in ${locality} and across ${region}.`,
     },
   }
 
@@ -101,7 +110,7 @@ export default function AboutPage() {
         <div className="relative z-10 px-4 md:px-12 max-w-[1280px] mx-auto w-full">
           <p className="font-mono text-[#f97316] text-[11px] uppercase tracking-[0.2em] font-bold mb-3">Our Story</p>
           <h1 className="text-[34px] sm:text-[48px] md:text-[68px] font-extrabold tracking-tight leading-[1.05] text-white mb-4 max-w-3xl">
-            Built for the <span className="text-[#f97316]">Drivers of Watford.</span>
+            Built for the <span className="text-[#f97316]">Drivers of {locality}.</span>
           </h1>
           <p className="text-[#9aadcc] text-[15px] sm:text-[17px] leading-relaxed max-w-lg">
             Mobile Tyres Watford 24/7 was founded on a simple premise: professional tyre service should come to you — not the other way around.
@@ -116,16 +125,16 @@ export default function AboutPage() {
             <div className="reveal">
               <p className="font-mono text-[#f97316] text-[11px] uppercase tracking-[0.2em] font-bold mb-3">Who We Are</p>
               <h2 className="text-[26px] sm:text-[32px] md:text-[40px] font-extrabold tracking-tight text-white mb-5 leading-tight">
-                Watford&apos;s Trusted Mobile Tyre Team
+                {locality}&apos;s Trusted Mobile Tyre Team
               </h2>
               <p className="text-[#7a90b8] text-[15px] leading-relaxed mb-4">
                 We started with a clear vision: deliver professional tyre services directly to the driver&apos;s driveway. No waiting rooms, no wasted afternoons at a garage.
               </p>
               <p className="text-[#7a90b8] text-[15px] leading-relaxed mb-7">
-                Today our experienced technicians serve hundreds of Watford and Hertfordshire customers every year, carrying premium tyre inventory and the expertise to handle everything from emergency puncture repairs to full tyre replacements.
+                Today our experienced technicians serve hundreds of {locality} and {region} customers every year, carrying premium tyre inventory and the expertise to handle everything from emergency puncture repairs to full tyre replacements.
               </p>
               <div className="flex flex-wrap gap-2">
-                {['Watford', 'Hemel Hempstead', 'St Albans', 'Bushey', 'Rickmansworth', 'Chorleywood'].map((area) => (
+                {[locality, 'Hemel Hempstead', 'St Albans', 'Bushey', 'Rickmansworth', 'Chorleywood'].map((area) => (
                   <span key={area} className="px-3 py-1.5 bg-[#131b2e] border border-[#1e2d4a] rounded-full text-[12px] text-[#9aadcc] font-medium">
                     {area}
                   </span>
@@ -226,7 +235,7 @@ export default function AboutPage() {
               <div className="space-y-5">
                 {[
                   { step: '01', title: 'Book in Seconds', desc: 'Call, WhatsApp, or fill in our form. We confirm within minutes.' },
-                  { step: '02', title: 'We Come to You', desc: 'Our fully-loaded van heads to your home, office, or wherever your car is parked in Watford.' },
+                  { step: '02', title: 'We Come to You', desc: `Our fully-loaded van heads to your home, office, or wherever your car is parked in ${locality}.` },
                   { step: '03', title: 'Professional Service', desc: 'Tyre fitted, balanced, torqued to spec — done right, on-site, every time.' },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4">
@@ -250,15 +259,15 @@ export default function AboutPage() {
             Ready to Experience Mobile Tyre Service?
           </h2>
           <p className="text-white/75 text-[15px] sm:text-[17px] mb-8 max-w-md mx-auto">
-            Join hundreds of Watford drivers who skipped the garage. Book today — no garage visit required.
+            Join hundreds of {locality} drivers who skipped the garage. Book today — no garage visit required.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="tel:07466756907"
+              href={telHref(mobile)}
               className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-[#f97316] px-8 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider hover:bg-[#fff7ed] transition-colors"
             >
               <span className="material-symbols-outlined text-[18px]">call</span>
-              Call 07466 756907
+              Call {fmtPhone(mobile)}
             </a>
             <Link
               href="/contact"

@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import { useSettings } from './SettingsProvider'
+import { fmtPhone, telHref, waHref } from '@/lib/settings'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -15,6 +17,11 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
+  const settings = useSettings()
+
+  const mobile = settings.phoneMobile
+  const office = settings.phoneOffice
+  const wa = settings.whatsappNumber
 
   useEffect(() => { setMenuOpen(false) }, [pathname])
 
@@ -71,19 +78,19 @@ export default function Header() {
           <div className="flex items-center gap-2">
             {/* WhatsApp */}
             <a
-              href="https://wa.me/447466756907"
+              href={waHref(wa)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-[#25D366] hover:bg-[#25D366]/10 transition-colors text-[13px] font-bold"
               aria-label="WhatsApp"
             >
               <span className="material-symbols-outlined text-[20px]">chat</span>
-              <span className="hidden sm:inline">07466 756907</span>
+              <span className="hidden sm:inline">{fmtPhone(mobile)}</span>
             </a>
 
             {/* Mobile 24/7 */}
             <a
-              href="tel:07466756907"
+              href={telHref(mobile)}
               className="hidden sm:flex items-center gap-1.5 bg-[#f97316] hover:bg-[#ea580c] text-white px-4 py-2 rounded-lg font-bold text-[13px] uppercase tracking-wide transition-colors shadow-md shadow-[#f97316]/20"
             >
               <span className="material-symbols-outlined text-[18px]">local_shipping</span>
@@ -93,7 +100,7 @@ export default function Header() {
 
             {/* Office */}
             <a
-              href="tel:01923240599"
+              href={telHref(office)}
               className="hidden lg:flex items-center gap-1.5 bg-[#1e2d4a] hover:bg-[#2d4470] border border-[#2d4470] text-white px-4 py-2 rounded-lg font-bold text-[13px] uppercase tracking-wide transition-colors"
             >
               <span className="material-symbols-outlined text-[18px]">call</span>
@@ -149,39 +156,39 @@ export default function Header() {
 
         <div className="px-4 pb-2 grid grid-cols-2 gap-3">
           <a
-            href="tel:07466756907"
+            href={telHref(mobile)}
             onClick={() => setMenuOpen(false)}
             className="flex flex-col items-center justify-center gap-0.5 bg-[#f97316] text-white py-3 rounded-xl font-bold text-[12px] uppercase tracking-wide shadow-lg shadow-[#f97316]/20"
           >
             <span className="material-symbols-outlined text-[18px]">local_shipping</span>
             Mobile 24/7
-            <span className="font-mono text-[10px] opacity-80 normal-case tracking-normal">07466 756907</span>
+            <span className="font-mono text-[10px] opacity-80 normal-case tracking-normal">{fmtPhone(mobile)}</span>
           </a>
           <a
-            href="tel:01923240599"
+            href={telHref(office)}
             onClick={() => setMenuOpen(false)}
             className="flex flex-col items-center justify-center gap-0.5 bg-[#1e2d4a] border border-[#2d4470] text-white py-3 rounded-xl font-bold text-[12px] uppercase tracking-wide"
           >
             <span className="material-symbols-outlined text-[18px]">call</span>
             Office
-            <span className="font-mono text-[10px] opacity-80 normal-case tracking-normal">01923 240599</span>
+            <span className="font-mono text-[10px] opacity-80 normal-case tracking-normal">{fmtPhone(office)}</span>
           </a>
         </div>
         <div className="px-4 pb-4">
           <a
-            href="https://wa.me/447466756907"
+            href={waHref(wa)}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-xl font-bold text-[14px] uppercase tracking-wide w-full"
           >
             <span className="material-symbols-outlined text-[20px]">chat</span>
-            WhatsApp · 07466 756907
+            WhatsApp · {fmtPhone(mobile)}
           </a>
         </div>
 
         <div className="px-8 pb-4 text-center text-[12px] text-[#6b7fa3] font-mono">
-          Watford &nbsp;·&nbsp; 07466 756907
+          {settings.addressLocality} &nbsp;·&nbsp; {fmtPhone(mobile)}
         </div>
       </div>
     </>

@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useSettings } from '@/components/SettingsProvider'
+import { fmtPhone, telHref, waHref } from '@/lib/settings'
 
 const services = [
   {
@@ -89,6 +91,13 @@ const faqs = [
 ]
 
 export default function ServicesPage() {
+  const settings = useSettings()
+  const mobile = settings.phoneMobile
+  const office = settings.phoneOffice
+  const wa = settings.whatsappNumber
+  const locality = settings.addressLocality
+  const region = settings.addressRegion
+
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   useEffect(() => {
@@ -105,26 +114,26 @@ export default function ServicesPage() {
     '@type': 'LocalBusiness',
     name: 'Mobile Tyres Watford 24/7',
     url: 'https://mobiletyreswatford247.co.uk/services',
-    telephone: ['07466756907', '01923240599'],
+    telephone: [mobile, office],
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Watford',
-      addressRegion: 'Hertfordshire',
+      addressLocality: locality,
+      addressRegion: region,
       addressCountry: 'GB',
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Mobile Tyre Services Watford',
+      name: `Mobile Tyre Services ${locality}`,
       itemListElement: [
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tyre Puncture Repair', description: 'Mobile tyre puncture repair at your home, office, or roadside in Watford.' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'New Tyre Fitting', description: 'Supply and fit new tyres from leading brands at your location in Watford.' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tyre Puncture Repair', description: `Mobile tyre puncture repair at your home, office, or roadside in ${locality}.` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'New Tyre Fitting', description: `Supply and fit new tyres from leading brands at your location in ${locality}.` } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tyre Replacement', description: 'Single or full set tyre replacement delivered and fitted at your location.' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Wheel Balancing', description: 'Mobile wheel balancing to eliminate vibration and uneven tyre wear.' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tyre Rotation', description: 'Mobile tyre rotation to extend tyre life with even tread wear.' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Locking Wheel Nut Removal', description: 'Specialist removal of locking wheel nuts when the key is lost or damaged.' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Flat Tyre Emergency Service', description: '24/7 emergency flat tyre service across Watford and surrounding Hertfordshire areas.' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile Tyre Fitting at Home, Office or Roadside', description: 'Fully mobile tyre fitting service at your preferred location in Watford.' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Vehicle Mechanic', description: 'Mobile vehicle mechanic service in Watford — diagnosis and mechanical repairs at your home or workplace.' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Flat Tyre Emergency Service', description: `24/7 emergency flat tyre service across ${locality} and surrounding ${region} areas.` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile Tyre Fitting at Home, Office or Roadside', description: `Fully mobile tyre fitting service at your preferred location in ${locality}.` } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Vehicle Mechanic', description: `Mobile vehicle mechanic service in ${locality} — diagnosis and mechanical repairs at your home or workplace.` } },
       ],
     },
   }
@@ -146,17 +155,17 @@ export default function ServicesPage() {
         <div className="relative z-10 px-4 md:px-12 max-w-[1280px] mx-auto">
           <p className="font-mono text-[#f97316] text-[12px] uppercase tracking-[0.2em] font-bold mb-3">What We Do</p>
           <h1 className="text-[44px] md:text-[64px] font-extrabold tracking-tight leading-[1.05] text-white mb-5 max-w-2xl">
-            Mobile Tyre Services in Watford
+            Mobile Tyre Services in {locality}
           </h1>
           <p className="text-[#9aadcc] text-[17px] leading-relaxed max-w-lg mb-8">
             We bring the full tyre service to your driveway, office, or roadside — no garage, no waiting. Fast, professional, and precise.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="tel:07466756907" className="bg-[#f97316] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide emergency-pulse shadow-lg shadow-[#f97316]/20">
+            <a href={telHref(mobile)} className="bg-[#f97316] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide emergency-pulse shadow-lg shadow-[#f97316]/20">
               Call for Emergency
             </a>
-            <a href="https://wa.me/447466756907" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide">
-              WhatsApp · 07466 756907
+            <a href={waHref(wa)} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide">
+              WhatsApp · {fmtPhone(mobile)}
             </a>
           </div>
         </div>
@@ -212,12 +221,12 @@ export default function ServicesPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: 'speed', title: '60-Min Emergency Response', desc: 'We dispatch fast. Average Watford area arrival time under one hour.' },
+              { icon: 'speed', title: '60-Min Emergency Response', desc: `We dispatch fast. Average ${locality} area arrival time under one hour.` },
               { icon: 'build', title: 'Professional Equipment', desc: 'Fully equipped mobile unit — tyre fitting, balancing, and specialist tools on board.' },
               { icon: 'verified_user', title: 'Fully Insured Technicians', desc: 'Every tech carries liability insurance. Your vehicle is always protected.' },
               { icon: 'price_check', title: 'Upfront Pricing', desc: 'We quote before we start. You approve every charge before we touch your car.' },
-              { icon: 'location_on', title: 'Serving Watford & Hertfordshire', desc: 'We cover Watford, Hemel Hempstead, St Albans, Bushey, Rickmansworth and more.' },
-              { icon: 'thumb_up', title: '5-Star Rated', desc: 'Consistently 5-star reviews from happy customers across Watford and the surrounding area.' },
+              { icon: 'location_on', title: `Serving ${locality} & ${region}`, desc: `We cover ${locality}, Hemel Hempstead, St Albans, Bushey, Rickmansworth and more.` },
+              { icon: 'thumb_up', title: '5-Star Rated', desc: `Consistently 5-star reviews from happy customers across ${locality} and the surrounding area.` },
             ].map((item, i) => (
               <div
                 key={item.title}
@@ -250,7 +259,7 @@ export default function ServicesPage() {
               { icon: 'event_available', step: '2', title: 'Get a Quote', desc: 'Upfront price. You approve before we start.' },
               { icon: 'local_shipping', step: '3', title: 'We Arrive', desc: 'Fully-equipped van at your location, on time.' },
               { icon: 'build', step: '4', title: 'Service Done', desc: 'Fitted, balanced, and checked to spec.' },
-              { icon: 'task_alt', step: '5', title: 'Drive Away', desc: 'Final check complete. You\'re good to go.' },
+              { icon: 'task_alt', step: '5', title: 'Drive Away', desc: "Final check complete. You're good to go." },
             ].map((item, i) => (
               <div
                 key={item.step}
@@ -278,13 +287,13 @@ export default function ServicesPage() {
               24/7 Emergency Line
             </div>
             <h2 className="text-[28px] md:text-[36px] font-extrabold text-white leading-tight">Flat Tyre Right Now?</h2>
-            <p className="text-white/75 text-[15px] mt-1">We dispatch immediately. Average Watford area arrival under 60 minutes.</p>
+            <p className="text-white/75 text-[15px] mt-1">We dispatch immediately. Average {locality} area arrival under 60 minutes.</p>
           </div>
           <div className="flex gap-3 shrink-0">
-            <a href="tel:07466756907" className="bg-white text-[#f97316] px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide hover:bg-[#fff7ed] transition-colors">
+            <a href={telHref(mobile)} className="bg-white text-[#f97316] px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide hover:bg-[#fff7ed] transition-colors">
               Call Now
             </a>
-            <a href="https://wa.me/447466756907" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide">
+            <a href={waHref(wa)} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-7 py-3.5 rounded-xl font-bold text-[14px] uppercase tracking-wide">
               WhatsApp Us
             </a>
           </div>
@@ -334,8 +343,8 @@ export default function ServicesPage() {
             No garage visit, no waiting room. A certified tyre technician at your door — when and where you need it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:07466756907" className="shimmer-btn text-white px-10 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider">
-              Call 07466 756907
+            <a href={telHref(mobile)} className="shimmer-btn text-white px-10 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider">
+              Call {fmtPhone(mobile)}
             </a>
             <Link href="/contact" className="border-2 border-[#f97316] text-[#f97316] px-10 py-4 rounded-xl font-bold text-[14px] uppercase tracking-wider hover:bg-[#f97316] hover:text-white transition-colors">
               Book Online

@@ -1,7 +1,10 @@
 'use client'
 import { useState } from 'react'
+import { useSettings } from './SettingsProvider'
+import { waHref } from '@/lib/settings'
 
 export default function BookingForm() {
+  const settings = useSettings()
   const [form, setForm] = useState({ name: '', phone: '', service: '', address: '' })
 
   const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
@@ -17,7 +20,7 @@ export default function BookingForm() {
       `*Service:* ${form.service || '—'}`,
       `*Address:* ${form.address || '—'}`,
     ].join('\n')
-    window.open(`https://wa.me/447466756907?text=${encodeURIComponent(msg)}`, '_blank')
+    window.open(`${waHref(settings.whatsappNumber)}?text=${encodeURIComponent(msg)}`, '_blank')
   }
 
   return (
