@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
+import { redirect, notFound } from 'next/navigation'
 import { createServiceClient } from '@/lib/supabase/server'
 import SetupForm from './SetupForm'
 
@@ -8,7 +8,16 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-export default async function SetupPage() {
+export default async function SetupPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ token?: string }>
+}) {
+  // Require a secret token in the URL — without it, return 404
+  const { token } = await searchParams
+  const setupToken = process.env.SETUP_TOKEN
+  if (!setupToken || token !== setupToken) notFound()
+
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
     return (
       <main className="min-h-screen bg-[#060e20] flex items-center justify-center px-4">
