@@ -17,7 +17,19 @@ export default function LoginForm() {
       )}
       <div>
         <label className="block text-[#7a90b8] text-xs font-mono uppercase tracking-widest mb-1.5">
-          Admin Password
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          required
+          autoComplete="email"
+          className={inputCls}
+        />
+      </div>
+      <div>
+        <label className="block text-[#7a90b8] text-xs font-mono uppercase tracking-widest mb-1.5">
+          Password
         </label>
         <input
           type="password"

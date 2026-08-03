@@ -17,6 +17,11 @@ export default function SetupForm() {
         </div>
       )}
       <div>
+        <label className={labelCls}>Admin Email</label>
+        <input type="email" name="email" required autoComplete="email" className={inputCls} />
+        <p className="text-[#7a90b8] text-xs mt-1">You will use this email to log in.</p>
+      </div>
+      <div>
         <label className={labelCls}>Admin Password</label>
         <input type="password" name="password" required autoComplete="new-password" minLength={8} className={inputCls} />
         <p className="text-[#7a90b8] text-xs mt-1">Minimum 8 characters. Store it somewhere safe — there is no recovery flow.</p>
