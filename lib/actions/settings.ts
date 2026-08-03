@@ -1,6 +1,7 @@
 'use server'
 import { redirect } from 'next/navigation'
-import { createAuthClient, createServiceClient } from '@/lib/supabase/server'
+import { createServiceClient } from '@/lib/supabase/server'
+import { getSession } from '@/lib/auth-session'
 import { validateSettings, type ValidationError } from '@/lib/validate-settings'
 
 export interface ActionState {
@@ -12,10 +13,8 @@ export async function saveSettings(
   _prevState: ActionState,
   formData: FormData
 ): Promise<ActionState> {
-  // Verify the caller is authenticated
-  const authClient = await createAuthClient()
-  const { data: { user } } = await authClient.auth.getUser()
-  if (!user) redirect('/login')
+  const loggedIn = await getSession()
+  if (!loggedIn) redirect('/login')
 
   const input = {
     phoneMobile:     (formData.get('phoneMobile')     as string ?? '').trim(),

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
-import { createAuthClient } from '@/lib/supabase/server'
+import { getSession } from '@/lib/auth-session'
 import { getSettings } from '@/lib/get-settings'
 import SettingsForm from './SettingsForm'
+import ChangePasswordForm from './ChangePasswordForm'
 import SignOutButton from './SignOutButton'
 
 export const metadata: Metadata = {
@@ -31,9 +32,8 @@ export default async function SettingsPage() {
     )
   }
 
-  const authClient = await createAuthClient()
-  const { data: { user } } = await authClient.auth.getUser()
-  if (!user) redirect('/login')
+  const loggedIn = await getSession()
+  if (!loggedIn) redirect('/login')
 
   const settings = await getSettings()
 
@@ -46,11 +46,13 @@ export default async function SettingsPage() {
               Admin
             </p>
             <h1 className="text-3xl font-extrabold text-white tracking-tight">Site Settings</h1>
-            <p className="text-[#7a90b8] text-sm mt-1">{user.email}</p>
           </div>
           <SignOutButton />
         </div>
         <SettingsForm settings={settings} />
+        <div className="mt-10">
+          <ChangePasswordForm />
+        </div>
       </div>
     </main>
   )
