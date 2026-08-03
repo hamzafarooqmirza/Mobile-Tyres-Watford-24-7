@@ -26,8 +26,7 @@ export default async function SetupPage() {
   // If admin credentials already exist, redirect to login
   const supabase = createServiceClient()
   const { data } = await supabase
-    .schema('mobile_tyres_watford')
-    .from('admin_credentials')
+    .from('mtw_admin_credentials')
     .select('password_hash')
     .eq('id', 1)
     .single()

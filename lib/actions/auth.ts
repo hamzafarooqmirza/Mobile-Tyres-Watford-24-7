@@ -13,8 +13,7 @@ async function getCredentials() {
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) return null
   const supabase = createServiceClient()
   const { data } = await supabase
-    .schema('mobile_tyres_watford')
-    .from('admin_credentials')
+    .from('mtw_admin_credentials')
     .select('email, password_hash')
     .eq('id', 1)
     .single()
@@ -50,8 +49,7 @@ export async function setupAdmin(_: AuthState, formData: FormData): Promise<Auth
 
   const supabase = createServiceClient()
   const { data: existing } = await supabase
-    .schema('mobile_tyres_watford')
-    .from('admin_credentials')
+    .from('mtw_admin_credentials')
     .select('password_hash')
     .eq('id', 1)
     .single()
@@ -68,8 +66,7 @@ export async function setupAdmin(_: AuthState, formData: FormData): Promise<Auth
 
   const hash = await bcrypt.hash(password, 12)
   const { error } = await supabase
-    .schema('mobile_tyres_watford')
-    .from('admin_credentials')
+    .from('mtw_admin_credentials')
     .upsert({ id: 1, email, password_hash: hash })
 
   if (error) return { error: `Database error: ${error.message}` }
@@ -99,8 +96,7 @@ export async function changePassword(_: AuthState, formData: FormData): Promise<
   const hash = await bcrypt.hash(next, 12)
   const supabase = createServiceClient()
   const { error } = await supabase
-    .schema('mobile_tyres_watford')
-    .from('admin_credentials')
+    .from('mtw_admin_credentials')
     .update({ password_hash: hash })
     .eq('id', 1)
 

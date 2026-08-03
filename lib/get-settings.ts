@@ -17,8 +17,7 @@ export async function getSettings(): Promise<SiteSettings> {
   try {
     const supabase = createServiceClient()
     const { data, error } = await supabase
-      .schema('mobile_tyres_watford')
-      .from('site_settings')
+      .from('mtw_site_settings')
       .select('*')
       .eq('id', 1)
       .single()
